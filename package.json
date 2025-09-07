@@ -1,0 +1,11 @@
+{
+    "name": "com.deadwronggames.zmodularui",
+    "version": "1.0.0",
+    "displayName": "ZModularUI",
+    "description": "Prefabs with themes and configs to easily build UI components from.",
+    "unity": "2022.3",
+    "author": {
+        "name": "DeadWrong Games",
+        "url": "hhtps://x.com/DeadWrong_Games"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "DeadWrongGames.ZModularUI",
+    "rootNamespace": "DeadWrongGames.ZModularUI",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
