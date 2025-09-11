@@ -1,2 +1,0 @@
-Runtime/Assets/Texture_Paper/
-Runtime/Assets/Texture_Rock/
