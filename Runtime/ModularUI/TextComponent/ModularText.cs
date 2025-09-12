@@ -25,7 +25,7 @@ namespace DeadWrongGames.ZModularUI
             if (_contentFile != null) _content = _contentFile.text;
             
             string contentString = (!string.IsNullOrEmpty(_content)) ? _content : ModularTextConfig.GetDefaultText(_componentTier);
-            _text.text =  ZMethods.FormattedInspectorString(contentString); 
+            _text.text =  ZMethodsString.FormattedInspectorString(contentString); 
             _text.font = _theme.GetFont(_fontType);
             _text.fontSize = _theme.GetFontSize(_componentTier);
             _text.color = _theme.GetFontColor(_componentTier);
