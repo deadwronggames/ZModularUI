@@ -1,4 +1,5 @@
 using System.Linq;
+using DeadWrongGames.ZCommon;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,6 +9,12 @@ namespace DeadWrongGames.ZModularUI
 {
     public static class ModularUIHelpers
     {
+        public static TProperty GetProperty<TProperty>(Tier tier, TProperty[] array)
+        {
+            int index = Mathf.Min((int)tier, array.Length - 1);
+            return array[index];
+        }
+        
         public static void ReconfigureAllModularUI()
         {
 #if UNITY_EDITOR

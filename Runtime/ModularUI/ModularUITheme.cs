@@ -14,18 +14,8 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] Sprite[] _windowBorderSprites;
         [SerializeField] RectOffset[] _windowPadding;
         
-        public Sprite GetWindowBackgroundSprite(Tier tier)
-        {
-            int index = Mathf.Min((int)tier, _windowBackgroundSprites.Length - 1);
-            return _windowBackgroundSprites[index];
-        }
-        
-        public Sprite GetWindowBorderSprite(Tier tier)
-        {
-            int index = Mathf.Min((int)tier, _windowBorderSprites.Length - 1);
-            return _windowBorderSprites[index];
-        }
-        
+        public Sprite GetWindowBackgroundSprite(Tier tier) => ModularUIHelpers.GetProperty(tier, _windowBackgroundSprites);
+        public Sprite GetWindowBorderSprite(Tier tier) => ModularUIHelpers.GetProperty(tier, _windowBorderSprites);
         public RectOffset GetWindowPadding(Tier tier)
         {
             RectOffset defaultPadding = new(50, 50, 50, 50);
@@ -54,30 +44,10 @@ namespace DeadWrongGames.ZModularUI
                      _ => Resources.Load<TMP_FontAsset>("Fonts & Materials/LiberationSans SDF")
                  };
         }
-        
-        public int GetFontSize(Tier tier)
-        {
-            int index = Mathf.Min((int)tier, _fontSizes.Length - 1);
-            return _fontSizes[index];
-        }
-        
-        public FontStyles GetFontStyle(Tier tier)
-        {
-            int index = Mathf.Min((int)tier, _fontStyles.Length - 1);
-            return _fontStyles[index];
-        }
-        
-        public Color GetFontColor(Tier tier)
-        {
-            int index = Mathf.Min((int)tier, _textColors.Length - 1);
-            return _textColors[index];
-        }
-        
-        public HorizontalAlignmentOptions GetTextAlignment(Tier tier)
-        {
-            int index = Mathf.Min((int)tier, _textAlignment.Length - 1);
-            return _textAlignment[index];
-        }
+        public int GetFontSize(Tier tier) => ModularUIHelpers.GetProperty(tier, _fontSizes);
+        public FontStyles GetFontStyle(Tier tier) => ModularUIHelpers.GetProperty(tier, _fontStyles);
+        public Color GetFontColor(Tier tier) => ModularUIHelpers.GetProperty(tier, _textColors);
+        public HorizontalAlignmentOptions GetTextAlignment(Tier tier) => ModularUIHelpers.GetProperty(tier, _textAlignment);
         #endregion
 
         // [Header("Tween parameters")] 
