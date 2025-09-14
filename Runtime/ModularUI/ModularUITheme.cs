@@ -11,15 +11,16 @@ namespace DeadWrongGames.ZModularUI
         #region Modular Windows
         [Header("Modular Windows")]
         [SerializeField] Sprite[] _windowBackgroundSprites;
-        [SerializeField] Sprite[] _windowBorderSprites;
-        [SerializeField] RectOffset[] _windowPadding;
+        [SerializeField] ModularColor[] _windowBackgroundColors;
+        [SerializeField] UIBorderProperties[] _windowBorders;
+        [SerializeField] RectOffset[] _windowContentPadding;
         
         public Sprite GetWindowBackgroundSprite(Tier tier) => ModularUIHelpers.GetProperty(tier, _windowBackgroundSprites);
-        public Sprite GetWindowBorderSprite(Tier tier) => ModularUIHelpers.GetProperty(tier, _windowBorderSprites);
-        public RectOffset GetWindowPadding(Tier tier)
+        public Color GetWindowBackgroundColor(Tier tier) => ModularUIHelpers.GetProperty(tier, _windowBackgroundColors);
+        public UIBorderProperties GetWindowBorderProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _windowBorders);
+        public RectOffset GetWindowContentPadding(Tier tier)
         {
-            RectOffset defaultPadding = new(50, 50, 50, 50);
-            return ((int)tier > _windowPadding.Length - 1) ? defaultPadding : _windowPadding[(int)tier];
+            return ((int)tier > _windowContentPadding.Length - 1) ? new RectOffset() : _windowContentPadding[(int)tier];
         }
         #endregion
         
@@ -30,7 +31,7 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] TMP_FontAsset _fontMonoSpace;
         [SerializeField] int[] _fontSizes;
         [SerializeField] FontStyles[] _fontStyles;
-        [SerializeField] Color[]_textColors; // TODO use SO color definitions
+        [SerializeField] ModularColor[] _textColors;
         [SerializeField] HorizontalAlignmentOptions[] _textAlignment;
         
         public enum FontType{ Ornate, Plain, MonoSpace }
@@ -49,11 +50,14 @@ namespace DeadWrongGames.ZModularUI
         public Color GetFontColor(Tier tier) => ModularUIHelpers.GetProperty(tier, _textColors);
         public HorizontalAlignmentOptions GetTextAlignment(Tier tier) => ModularUIHelpers.GetProperty(tier, _textAlignment);
         #endregion
-
-        // [Header("Tween parameters")] 
-        // [SerializeField] float _uiColorFadeDuration;
-        // public float UIColorFadeDuration => _uiColorFadeDuration;
         
+        #region Modular Buttons
+        [Header("Modular Buttons")]
+        [SerializeField] ButtonProperties[] _buttonProperties;
+        public ButtonProperties GetButtonProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _buttonProperties);
+        #endregion
+
+
 #if UNITY_EDITOR
         [Button("Reconfigure all Modular UI")]
         public void ReconfigureAll() => ModularUIHelpers.ReconfigureAllModularUI();
