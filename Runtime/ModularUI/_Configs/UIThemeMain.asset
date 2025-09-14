@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44eecd11918e74498125d33ceb733fe, type: 3}
   m_Name: UIThemeMain
   m_EditorClassIdentifier: 
-  _windowBackgroundSprites:
-  - {fileID: 21300000, guid: cad778eb2ae2ab94396fc6c55ef4e441, type: 3}
-  _windowBackgroundColors:
-  - {fileID: 11400000, guid: fe309f1f9749d354ab5695183353a4f6, type: 2}
-  - {fileID: 11400000, guid: 408b680964df7e64bb48f89afcda12e6, type: 2}
+  _windowBackgroundProperties:
+  - _sprite: {fileID: 21300000, guid: cad778eb2ae2ab94396fc6c55ef4e441, type: 3}
+    _imageColor: {fileID: 11400000, guid: fe309f1f9749d354ab5695183353a4f6, type: 2}
+  - _sprite: {fileID: 21300000, guid: cad778eb2ae2ab94396fc6c55ef4e441, type: 3}
+    _imageColor: {fileID: 11400000, guid: 408b680964df7e64bb48f89afcda12e6, type: 2}
   _windowBorders:
   - _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
     _imageColor: {fileID: 11400000, guid: 6c2d811d89014b945887bf3f512b5f38, type: 2}
@@ -37,31 +37,11 @@ MonoBehaviour:
     m_Right: 120
     m_Top: 60
     m_Bottom: 20
-  _fontOrnate: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  _fontPlain: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  _fontMonoSpace: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  _fontSizes: 5a0000003c0000001e00000018000000
-  _fontStyles: 100000002000000000000000
-  _textColors:
-  - {fileID: 11400000, guid: 6c2d811d89014b945887bf3f512b5f38, type: 2}
-  - {fileID: 11400000, guid: bf9cefe0d9bc473459b21ed90c6a1aad, type: 2}
-  _textAlignment: 020000000200000008000000
-  _buttonProperties:
-  - ButtonSize: {x: 500, y: 150}
-    Text:
-      _font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      _fontSize: 60
-      _textColor: {fileID: 11400000, guid: 6c2d811d89014b945887bf3f512b5f38, type: 2}
-    FrontImage:
-      _sprite: {fileID: 0}
-      _imageColor: {fileID: 0}
-    MiddleImage:
-      _sprite: {fileID: 0}
-      _imageColor: {fileID: 0}
-    BackImage:
+  _windowProperties:
+  - _backgroundProperties:
       _sprite: {fileID: 21300000, guid: cad778eb2ae2ab94396fc6c55ef4e441, type: 3}
-      _imageColor: {fileID: 11400000, guid: 408b680964df7e64bb48f89afcda12e6, type: 2}
-    Border:
+      _imageColor: {fileID: 11400000, guid: fe309f1f9749d354ab5695183353a4f6, type: 2}
+    _borderProperties:
       _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
       _imageColor: {fileID: 11400000, guid: 6c2d811d89014b945887bf3f512b5f38, type: 2}
       _contentPadding:
@@ -69,43 +49,15 @@ MonoBehaviour:
         m_Right: 20
         m_Top: 20
         m_Bottom: 20
-  - ButtonSize: {x: 300, y: 100}
-    Text:
-      _font: {fileID: 0}
-      _fontSize: 0
-      _textColor: {fileID: 0}
-    FrontImage:
-      _sprite: {fileID: 0}
-      _imageColor: {fileID: 0}
-    MiddleImage:
-      _sprite: {fileID: 21300000, guid: fdfda0b04cc182c49bfdc737a23ef69b, type: 3}
+    _windowContentPadding:
+      m_Left: 120
+      m_Right: 120
+      m_Top: 60
+      m_Bottom: 20
+  - _backgroundProperties:
+      _sprite: {fileID: 21300000, guid: cad778eb2ae2ab94396fc6c55ef4e441, type: 3}
       _imageColor: {fileID: 11400000, guid: 408b680964df7e64bb48f89afcda12e6, type: 2}
-    BackImage:
-      _sprite: {fileID: 21300000, guid: cad778eb2ae2ab94396fc6c55ef4e441, type: 3}
-      _imageColor: {fileID: 11400000, guid: bf9cefe0d9bc473459b21ed90c6a1aad, type: 2}
-    Border:
-      _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
-      _imageColor: {fileID: 11400000, guid: 6c2d811d89014b945887bf3f512b5f38, type: 2}
-      _contentPadding:
-        m_Left: 20
-        m_Right: 20
-        m_Top: 20
-        m_Bottom: 20
-  - ButtonSize: {x: 300, y: 100}
-    Text:
-      _font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      _fontSize: 40
-      _textColor: {fileID: 11400000, guid: 7ff0228985dea394fb916a210e97fbf5, type: 2}
-    FrontImage:
-      _sprite: {fileID: 0}
-      _imageColor: {fileID: 0}
-    MiddleImage:
-      _sprite: {fileID: 0}
-      _imageColor: {fileID: 0}
-    BackImage:
-      _sprite: {fileID: 21300000, guid: cad778eb2ae2ab94396fc6c55ef4e441, type: 3}
-      _imageColor: {fileID: 11400000, guid: bf9cefe0d9bc473459b21ed90c6a1aad, type: 2}
-    Border:
+    _borderProperties:
       _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
       _imageColor: {fileID: 11400000, guid: 808986c624850bd429e5818df7d6fa65, type: 2}
       _contentPadding:
@@ -113,21 +65,114 @@ MonoBehaviour:
         m_Right: 20
         m_Top: 20
         m_Bottom: 20
-  - ButtonSize: {x: 300, y: 70}
-    Text:
+    _windowContentPadding:
+      m_Left: 120
+      m_Right: 120
+      m_Top: 60
+      m_Bottom: 20
+  _textProperties:
+  - _font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    _fontSize: 90
+    _fontStyle: 16
+    _textColor: {fileID: 11400000, guid: 6c2d811d89014b945887bf3f512b5f38, type: 2}
+    _textAlignment: 514
+  - _font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    _fontSize: 60
+    _fontStyle: 32
+    _textColor: {fileID: 11400000, guid: bf9cefe0d9bc473459b21ed90c6a1aad, type: 2}
+    _textAlignment: 514
+  - _font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    _fontSize: 30
+    _fontStyle: 0
+    _textColor: {fileID: 11400000, guid: bf9cefe0d9bc473459b21ed90c6a1aad, type: 2}
+    _textAlignment: 264
+  - _font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    _fontSize: 24
+    _fontStyle: 0
+    _textColor: {fileID: 11400000, guid: bf9cefe0d9bc473459b21ed90c6a1aad, type: 2}
+    _textAlignment: 264
+  _buttonProperties:
+  - _buttonSize: {x: 600, y: 200}
+    _text:
       _font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-      _fontSize: 30
+      _fontSize: 100
+      _textColor: {fileID: 11400000, guid: 6c2d811d89014b945887bf3f512b5f38, type: 2}
+    _frontImage:
+      _sprite: {fileID: 0}
+      _imageColor: {fileID: 0}
+    _middleImage:
+      _sprite: {fileID: 0}
+      _imageColor: {fileID: 0}
+    _backImage:
+      _sprite: {fileID: 21300000, guid: cad778eb2ae2ab94396fc6c55ef4e441, type: 3}
+      _imageColor: {fileID: 11400000, guid: 408b680964df7e64bb48f89afcda12e6, type: 2}
+    _border:
+      _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
+      _imageColor: {fileID: 11400000, guid: 6c2d811d89014b945887bf3f512b5f38, type: 2}
+      _contentPadding:
+        m_Left: 20
+        m_Right: 20
+        m_Top: 20
+        m_Bottom: 20
+  - _buttonSize: {x: 400, y: 150}
+    _text:
+      _font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      _fontSize: 60
+      _textColor: {fileID: 11400000, guid: 7ff0228985dea394fb916a210e97fbf5, type: 2}
+    _frontImage:
+      _sprite: {fileID: 0}
+      _imageColor: {fileID: 0}
+    _middleImage:
+      _sprite: {fileID: 0}
+      _imageColor: {fileID: 0}
+    _backImage:
+      _sprite: {fileID: 21300000, guid: cad778eb2ae2ab94396fc6c55ef4e441, type: 3}
+      _imageColor: {fileID: 11400000, guid: bf9cefe0d9bc473459b21ed90c6a1aad, type: 2}
+    _border:
+      _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
+      _imageColor: {fileID: 11400000, guid: 808986c624850bd429e5818df7d6fa65, type: 2}
+      _contentPadding:
+        m_Left: 20
+        m_Right: 20
+        m_Top: 20
+        m_Bottom: 20
+  - _buttonSize: {x: 400, y: 150}
+    _text:
+      _font: {fileID: 0}
+      _fontSize: 0
+      _textColor: {fileID: 0}
+    _frontImage:
+      _sprite: {fileID: 21300000, guid: fdfda0b04cc182c49bfdc737a23ef69b, type: 3}
+      _imageColor: {fileID: 11400000, guid: 408b680964df7e64bb48f89afcda12e6, type: 2}
+    _middleImage:
+      _sprite: {fileID: 0}
+      _imageColor: {fileID: 0}
+    _backImage:
+      _sprite: {fileID: 21300000, guid: cad778eb2ae2ab94396fc6c55ef4e441, type: 3}
+      _imageColor: {fileID: 11400000, guid: bf9cefe0d9bc473459b21ed90c6a1aad, type: 2}
+    _border:
+      _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
+      _imageColor: {fileID: 11400000, guid: 808986c624850bd429e5818df7d6fa65, type: 2}
+      _contentPadding:
+        m_Left: 20
+        m_Right: 20
+        m_Top: 20
+        m_Bottom: 20
+  - _buttonSize: {x: 400, y: 100}
+    _text:
+      _font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      _fontSize: 50
       _textColor: {fileID: 11400000, guid: bf9cefe0d9bc473459b21ed90c6a1aad, type: 2}
-    FrontImage:
+    _frontImage:
       _sprite: {fileID: 0}
       _imageColor: {fileID: 0}
-    MiddleImage:
+    _middleImage:
       _sprite: {fileID: 0}
       _imageColor: {fileID: 0}
-    BackImage:
+    _backImage:
       _sprite: {fileID: 0}
       _imageColor: {fileID: 0}
-    Border:
+    _border:
       _sprite: {fileID: 0}
       _imageColor: {fileID: 0}
       _contentPadding:

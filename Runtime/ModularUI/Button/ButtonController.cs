@@ -5,6 +5,8 @@ namespace DeadWrongGames.ZModularUI
 {
     public class ButtonController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerClickHandler
     {
+        public bool IsInteractable { get; set; }
+
         public void OnPointerEnter(PointerEventData eventData)
         {
         }

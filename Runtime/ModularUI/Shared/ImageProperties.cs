@@ -5,18 +5,15 @@ using UnityEngine.UI;
 namespace DeadWrongGames.ZModularUI
 {
     [Serializable]
-    public struct UIBorderProperties
+    public struct ImageProperties
     {
         [SerializeField] Sprite _sprite;
         [SerializeField] ModularColor _imageColor;
-        [SerializeField] RectOffset _contentPadding;
         
-        public void ApplyTo(Image target, RectTransform targetPadding)
+        public void ApplyTo(Image target)
         {
             target.sprite = _sprite;
             target.color = _imageColor;
-            
-            targetPadding.SetPadding(_contentPadding);
             
             target.gameObject.SetActive(_sprite != null);
         }

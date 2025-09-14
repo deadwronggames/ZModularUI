@@ -8,7 +8,6 @@ namespace DeadWrongGames.ZModularUI
 {
     public class ModularText : BaseModularUIComponent<ModularTextConfig>
     {
-        [SerializeField] ModularUITheme.FontType _fontType;
         [SerializeField] Tier _componentTier;
         [SerializeField] TextAsset _contentFile;
         [SerializeField] string _content;
@@ -22,17 +21,16 @@ namespace DeadWrongGames.ZModularUI
 
         protected override void Apply()
         {
+            // first check for content file, then string set in inspector, else default string
             if (_contentFile != null) _content = _contentFile.text;
-            
             string contentString = (!string.IsNullOrEmpty(_content)) ? _content : ModularTextConfig.GetDefaultText(_componentTier);
             _text.text =  ZMethodsString.FormattedInspectorString(contentString); 
-            _text.font = _theme.GetFont(_fontType);
-            _text.fontSize = _theme.GetFontSize(_componentTier);
-            _text.color = _theme.GetFontColor(_componentTier);
-            _text.fontStyle = _theme.GetFontStyle(_componentTier);
-            _text.horizontalAlignment = _theme.GetTextAlignment(_componentTier);
+            
+            // apply text properties
+            ModularTextProperties properties = _theme.GetTextProperties(_componentTier);
+            properties.ApplyTo(_text);
         }
-
+        
         public string GetText() => EnsureConfiguredAndRun(() => _text.text);
         public float GetPreferredWidth() => EnsureConfiguredAndRun(() => _text.preferredWidth);
 

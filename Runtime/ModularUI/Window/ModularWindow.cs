@@ -11,7 +11,7 @@ namespace DeadWrongGames.ZModularUI
         [Header("Setup")]
         [SerializeField] Image _backgroundImage;
         [SerializeField] Image _borderImage;
-        [SerializeField] VerticalLayoutGroup _contentVerticalLayoutGroup;
+        [SerializeField] RectTransform _contentRectTransform;
         
         protected override void Setup()
         {
@@ -19,11 +19,8 @@ namespace DeadWrongGames.ZModularUI
         
         protected override void Apply()
         {
-            _backgroundImage.sprite = _theme.GetWindowBackgroundSprite(_componentTier);
-            _backgroundImage.color = _theme.GetWindowBackgroundColor(_componentTier);
-            _theme.GetWindowBorderProperties(_componentTier).ApplyTo(_borderImage);
-            _theme.GetWindowBorderProperties(_componentTier).ApplyPadding(_backgroundImage.rectTransform);
-            _contentVerticalLayoutGroup.padding = _theme.GetWindowContentPadding(_componentTier);
+            ModularWindowProperties properties = _theme.GetWindowProperties(_componentTier);
+            properties.ApplyTo(_backgroundImage, _borderImage, _contentRectTransform);
         }
     }
 }   
