@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +7,7 @@ using UnityEngine.UI;
 namespace DeadWrongGames.ZModularUI
 {
     [Serializable]
-    public struct ModularButtonProperties
+    public class ModularButtonProperties
     {
         [SerializeField] Vector2 _buttonSize;
         [SerializeField] ButtonTextProperties _text;
@@ -15,14 +16,21 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] ImageProperties _backImage;
         [SerializeField] UIBorderProperties _border;
 
-        public void ApplyTo(RectTransform buttonRectTransform, TMP_Text text, Image frontImage, Image middleImage, Image backImage, Image borderImage, RectTransform buttonVisualsRectTransform)
+        public Vector2 ButtonSize => _buttonSize ;
+        public ButtonTextProperties Text => _text ;
+        public ImageProperties FrontImage => _frontImage ;
+        public ImageProperties MiddleImage => _middleImage ;
+        public ImageProperties BackImage => _backImage ;
+        public UIBorderProperties Border => _border ;
+
+        public void ApplyTo(RectTransform buttonRectTransform, TMP_Text text, Image frontImage, Image middleImage, Image backImage, Image borderImage, RectTransform buttonVisualsRectTransform, float tweenTime = 0f, Ease ease = Ease.OutQuad)
         {
             buttonRectTransform.sizeDelta = _buttonSize;
-            _text.ApplyTo(text);
-            _frontImage.ApplyTo(frontImage);
-            _middleImage.ApplyTo(middleImage);
-            _backImage.ApplyTo(backImage);
-            _border.ApplyTo(borderImage, buttonVisualsRectTransform);
+            _text.ApplyTo(text, tweenTime, ease);
+            _frontImage.ApplyTo(frontImage, tweenTime, ease);
+            _middleImage.ApplyTo(middleImage, tweenTime, ease);
+            _backImage.ApplyTo(backImage, tweenTime, ease);
+            _border.ApplyTo(borderImage, buttonVisualsRectTransform, tweenTime, ease);
         }
     }
 }

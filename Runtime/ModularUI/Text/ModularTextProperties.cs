@@ -1,11 +1,12 @@
 using System;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
 namespace DeadWrongGames.ZModularUI
 {
     [Serializable]
-    public struct ModularTextProperties
+    public class ModularTextProperties
     {
         [SerializeField] TMP_FontAsset _font;
         [SerializeField] int _fontSize;
@@ -13,13 +14,28 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] ModularColor _textColor;
         [SerializeField] TextAlignmentOptions _textAlignment;
         
-        public void ApplyTo(TMP_Text target)
+        public TMP_FontAsset Font => _font;
+        public int FontSize => _fontSize;
+        public FontStyles FontStyle => _fontStyle;
+        public ModularColor TextColor => _textColor;
+        public TextAlignmentOptions TextAlignment => _textAlignment;
+        
+        public void ApplyTo(TMP_Text target, float tweenTime = 0f, Ease ease = Ease.OutQuad)
         {
             target.font = _font;
-            target.fontSize = _fontSize;
             target.fontStyle = _fontStyle;
-            target.color = _textColor;
             target.alignment = _textAlignment;
+            if (tweenTime == 0f)
+            {
+                target.fontSize = _fontSize;
+                target.color = _textColor;
+            }
+            else
+            {
+                DOTween.Kill(target);
+                DOTween.To(getter: () => target.fontSize, setter: x => target.fontSize = x, endValue: _fontSize, duration: tweenTime).SetEase(ease);
+                target.DOColor(_textColor, tweenTime).SetEase(ease);
+            }
             
             target.gameObject.SetActive((_font != null) && (_fontSize > 0));
         }

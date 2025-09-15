@@ -1,20 +1,25 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace DeadWrongGames.ZModularUI
 {
     [Serializable]
-    public struct ModularWindowProperties
+    public class ModularWindowProperties
     {
         [SerializeField] ImageProperties _backgroundProperties;
         [SerializeField] UIBorderProperties _borderProperties;
         [SerializeField] RectOffset _windowContentPadding;
+        
+        public ImageProperties BackgroundProperties => _backgroundProperties;
+        public UIBorderProperties BorderProperties => _borderProperties;
+        public RectOffset WindowContentPadding => _windowContentPadding;
 
-        public void ApplyTo(Image backgroundImage, Image borderImage, RectTransform contentRectTransform)
+        public void ApplyTo(Image backgroundImage, Image borderImage, RectTransform contentRectTransform, float tweenTime = 0f, Ease ease = Ease.OutQuad)
         {
-            _backgroundProperties.ApplyTo(backgroundImage);
-            _borderProperties.ApplyTo(borderImage, backgroundImage.rectTransform);
+            _backgroundProperties.ApplyTo(backgroundImage, tweenTime, ease);
+            _borderProperties.ApplyTo(borderImage, backgroundImage.rectTransform,tweenTime, ease);
             contentRectTransform.SetPadding(_windowContentPadding);
         }
     }

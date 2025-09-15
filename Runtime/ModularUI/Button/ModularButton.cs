@@ -53,20 +53,14 @@ namespace DeadWrongGames.ZModularUI
             _middleImage.sprite = newSprite;
             _middleImage.gameObject.SetActive(newSprite != null);
         }
-
-        public void OnHovered()
-        {
-            
-        }
         
-        public void OnClicked()
-        {
-            
-        }
+        public void DoFeedback(ButtonInteractionFeedback feedback, bool doOneshots) => feedback.DoFeedback(_theme.GetButtonProperties(_componentTier), doOneshots, _text);
         
-        public void OnSelected()
+        public void EndFeedback()
         {
-            
+            // apply the default properties again
+            ModularButtonProperties properties = _theme.GetButtonProperties(_componentTier);
+            properties.ApplyTo(_buttonRectTransform, _text, _frontImage, _middleImage, _backImage, _borderImage, _visualsRectTransform, ButtonInteractionFeedback.TWEEN_TIME, ButtonInteractionFeedback.TWEEN_EASE); 
         }
     }
 }

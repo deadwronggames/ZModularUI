@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b69c645cb5adc34592f20f7d7e09899, type: 3}
+  m_Name: ExampleButtonFeedbackHover
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _textColorDict
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[DeadWrongGames.ZModularUI.ModularColor,
+        DeadWrongGames.ZModularUI],[DeadWrongGames.ZModularUI.ModularColor, DeadWrongGames.ZModularUI]],
+        mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.ObjectEqualityComparer`1[[DeadWrongGames.ZModularUI.ModularColor,
+        DeadWrongGames.ZModularUI]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  _audio: {fileID: 0}
+  _textColorFallback: {fileID: 11400000, guid: fe309f1f9749d354ab5695183353a4f6, type: 2}
