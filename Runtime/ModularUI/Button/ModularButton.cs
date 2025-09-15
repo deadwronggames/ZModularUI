@@ -18,6 +18,7 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] Image _borderImage;
 
         private RectTransform _buttonRectTransform;
+        private ModularButtonProperties _defaultProperties;
         
         protected override void Setup()
         {
@@ -33,34 +34,15 @@ namespace DeadWrongGames.ZModularUI
 
         protected override void Apply()
         {
-            ModularButtonProperties properties = _theme.GetButtonProperties(_componentTier);
-            properties.ApplyTo(_buttonRectTransform, _text, _frontImage, _middleImage, _backImage, _borderImage, _visualsRectTransform);
-        }
-        
-        public void SetText(string newText)
-        {
-            _text.text = newText;
-        }
-        
-        public void SetFrontImage(Sprite newSprite)
-        {
-            _frontImage.sprite = newSprite;
-            _frontImage.gameObject.SetActive(newSprite != null);
-        }
-        
-        public void SetMiddleImage(Sprite newSprite)
-        {
-            _middleImage.sprite = newSprite;
-            _middleImage.gameObject.SetActive(newSprite != null);
+            _defaultProperties = _theme.GetButtonProperties(_componentTier);
+            _defaultProperties.ApplyTo(_buttonRectTransform, _text, _frontImage, _middleImage, _backImage, _borderImage, _visualsRectTransform);
         }
         
         public void DoFeedback(ButtonInteractionFeedback feedback, bool doOneshots) => feedback.DoFeedback(_theme.GetButtonProperties(_componentTier), doOneshots, _text);
         
         public void EndFeedback()
         {
-            // apply the default properties again
-            ModularButtonProperties properties = _theme.GetButtonProperties(_componentTier);
-            properties.ApplyTo(_buttonRectTransform, _text, _frontImage, _middleImage, _backImage, _borderImage, _visualsRectTransform, ButtonInteractionFeedback.TWEEN_TIME, ButtonInteractionFeedback.TWEEN_EASE); 
+            _defaultProperties.ApplyTo(_buttonRectTransform, _text, _frontImage, _middleImage, _backImage, _borderImage, _visualsRectTransform, ButtonInteractionFeedback.TWEEN_TIME, ButtonInteractionFeedback.TWEEN_EASE); 
         }
     }
 }
