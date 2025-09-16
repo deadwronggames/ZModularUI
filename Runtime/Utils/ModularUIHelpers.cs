@@ -41,7 +41,7 @@ namespace DeadWrongGames.ZModularUI
         {
 #if UNITY_EDITOR
             // Configure all modular UI components
-            IModularUIComponent[] modularUIComponents = Object.FindObjectsOfType<MonoBehaviour>().OfType<IModularUIComponent>().ToArray();
+            IModularUIComponent[] modularUIComponents = Object.FindObjectsByType(type: typeof(MonoBehaviour), sortMode: FindObjectsSortMode.None).OfType<IModularUIComponent>().ToArray();
             foreach (IModularUIComponent modularUIComponent in modularUIComponents)
                 modularUIComponent.Configure();
 
