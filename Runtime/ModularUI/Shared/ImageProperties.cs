@@ -9,10 +9,10 @@ namespace DeadWrongGames.ZModularUI
     public class ImageProperties
     {
         [SerializeField] Sprite _sprite;
-        [SerializeField] ModularColor _imageColor;
+        [SerializeField] ModularColorSO _imageColor;
         
         public Sprite Sprite => _sprite;
-        public ModularColor ImageColor => _imageColor;
+        public ModularColorSO ImageColor => _imageColor;
         
         public void ApplyTo(Image target, float tweenTime = 0f, Ease ease = Ease.OutQuad)
         {

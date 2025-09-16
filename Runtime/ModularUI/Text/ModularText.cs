@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace DeadWrongGames.ZModularUI
 {
-    public class ModularText : BaseModularUIComponent<ModularTextConfig>
+    public class ModularText : BaseModularUIComponent<ModularTextConfigSO>
     {
         [SerializeField] Tier _componentTier;
         [SerializeField] TextAsset _contentFile;
@@ -23,7 +23,7 @@ namespace DeadWrongGames.ZModularUI
         {
             // first check for content file, then string set in inspector, else default string
             if (_contentFile != null) _content = _contentFile.text;
-            string contentString = (!string.IsNullOrEmpty(_content)) ? _content : ModularTextConfig.GetDefaultText(_componentTier);
+            string contentString = (!string.IsNullOrEmpty(_content)) ? _content : ModularTextConfigSO.GetDefaultText(_componentTier);
             _text.text =  ZMethodsString.FormattedInspectorString(contentString); 
             
             // apply text properties

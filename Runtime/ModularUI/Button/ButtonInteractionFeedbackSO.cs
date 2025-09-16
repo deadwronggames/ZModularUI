@@ -8,14 +8,14 @@ using UnityEngine;
 namespace DeadWrongGames.ZModularUI
 {
     [CreateAssetMenu(menuName = "Scriptable Objects/ModularUI/ButtonInteractionFeedback", fileName = "ButtonInteractionFeedback")]
-    public class ButtonInteractionFeedback : ScriptableObject
+    public class ButtonInteractionFeedbackSO : ScriptableObject
     {
         public const float TWEEN_TIME = 0.2f;
         public const Ease TWEEN_EASE = Ease.OutQuad;
         
         [SerializeField] AudioClip _audio;
         [SerializeField] ColorPair[] _textColorMap;
-        [SerializeField] ModularColor _textColorFallback;
+        [SerializeField] ModularColorSO _textColorFallback;
 
         public void DoFeedback(ModularButtonProperties defaultProperties, bool doOneshots, TMP_Text text)
         {
@@ -24,7 +24,7 @@ namespace DeadWrongGames.ZModularUI
                 if (_audio != null) "TODO playing audio clip not implemented yet".Log(level: ZMethodsDebug.LogLevel.Warning);
             }
 
-            if (TryGetNewColor(defaultProperties.Text.TextColor, _textColorMap, _textColorFallback, out ModularColor newTextColor))
+            if (TryGetNewColor(defaultProperties.Text.TextColor, _textColorMap, _textColorFallback, out ModularColorSO newTextColor))
             {
                 DOTween.Kill(text);
                 text.DOColor(newTextColor, TWEEN_TIME).SetEase(TWEEN_EASE);
@@ -33,7 +33,7 @@ namespace DeadWrongGames.ZModularUI
             // Can add more as needed
         }
 
-        private static bool TryGetNewColor(ModularColor defaultColor, IEnumerable<ColorPair> colorMap, ModularColor colorFallback, out ModularColor newColor)
+        private static bool TryGetNewColor(ModularColorSO defaultColor, IEnumerable<ColorPair> colorMap, ModularColorSO colorFallback, out ModularColorSO newColor)
         {
             // Try to find new color from color map
             foreach (ColorPair colorPair in colorMap)
@@ -53,8 +53,8 @@ namespace DeadWrongGames.ZModularUI
         [Serializable]
         private struct ColorPair
         {
-            public ModularColor Key;
-            public ModularColor Value;
+            public ModularColorSO Key;
+            public ModularColorSO Value;
         }
     }
 }

@@ -11,10 +11,10 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] Broadcaster[] _onDeselectResponses;
         [SerializeField] bool _isInteractable = true;
         [SerializeField] bool _isSelectable;
-        [SerializeField] ButtonInteractionFeedback _feedbackHover;
-        [SerializeField] ButtonInteractionFeedback _feedbackPress;
-        [SerializeField] ButtonInteractionFeedback _feedbackClick; // must only be non-persistent oneshot effects
-        [SerializeField] ButtonInteractionFeedback _feedbackSelect;
+        [SerializeField] ButtonInteractionFeedbackSO _feedbackHover;
+        [SerializeField] ButtonInteractionFeedbackSO _feedbackPress;
+        [SerializeField] ButtonInteractionFeedbackSO _feedbackClick; // must only be non-persistent oneshot effects
+        [SerializeField] ButtonInteractionFeedbackSO _feedbackSelect;
         
         public bool IsInteractable { get => _isInteractable; set => _isInteractable = value; }
 

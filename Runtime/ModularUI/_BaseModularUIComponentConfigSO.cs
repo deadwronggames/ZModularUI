@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace DeadWrongGames.ZModularUI
 {
-    public abstract class BaseModularUIComponentConfig : ScriptableObject
+    public abstract class BaseModularUIComponentConfigSO : ScriptableObject
     {
-        public ModularUITheme Theme => _theme;
-        [SerializeField] [Required] ModularUITheme _theme;
+        public ModularUIThemeSO Theme => _theme;
+        [SerializeField] [Required] ModularUIThemeSO _theme;
         
 #if UNITY_EDITOR
         [Button("Reconfigure all Modular UI")]

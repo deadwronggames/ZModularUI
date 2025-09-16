@@ -9,11 +9,11 @@ namespace DeadWrongGames.ZModularUI
     public class UIBorderProperties
     {
         [SerializeField] Sprite _sprite;
-        [SerializeField] ModularColor _imageColor;
+        [SerializeField] ModularColorSO _imageColor;
         [SerializeField] RectOffset _contentPadding;
         
         public Sprite Sprite => _sprite;
-        public ModularColor ImageColor => _imageColor;
+        public ModularColorSO ImageColor => _imageColor;
         public RectOffset ContentPadding => _contentPadding;
         
         public void ApplyTo(Image target, RectTransform targetPadding, float tweenTime = 0f, Ease ease = Ease.OutQuad)

@@ -3,13 +3,13 @@ using UnityEngine;
 namespace DeadWrongGames.ZModularUI
 {
     [CreateAssetMenu(menuName = "Scriptable Objects/ModularUI/Color", fileName = "Color")]
-    public class ModularColor : ScriptableObject
+    public class ModularColorSO : ScriptableObject
     {
         public Color Color => _color;
         [SerializeField] Color _color;
         
         // Implicit conversion to Color
-        public static implicit operator Color(ModularColor modularColor)
+        public static implicit operator Color(ModularColorSO modularColor)
             => (modularColor != null) ? modularColor._color : Color.white;
     }
 }

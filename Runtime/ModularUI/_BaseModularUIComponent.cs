@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace DeadWrongGames.ZModularUI
 {
-    public abstract class BaseModularUIComponent<TConfig> : MonoBehaviour, IModularUIComponent where TConfig : BaseModularUIComponentConfig
+    public abstract class BaseModularUIComponent<TConfig> : MonoBehaviour, IModularUIComponent where TConfig : BaseModularUIComponentConfigSO
     {
         [Header("Config")]
         [SerializeField] [Required] protected TConfig _config;
         [SerializeField] bool _overrideProperties;
 
-        protected ModularUITheme _theme => _config.Theme;
+        protected ModularUIThemeSO _theme => _config.Theme;
         
         private bool _isConfigured;
         

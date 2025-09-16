@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace DeadWrongGames.ZModularUI
 {
-    public class ModularButton : BaseModularUIComponent<ModularButtonConfig>
+    public class ModularButton : BaseModularUIComponent<ModularButtonConfigSO>
     {
         [SerializeField] Tier _componentTier;
         
@@ -38,11 +38,11 @@ namespace DeadWrongGames.ZModularUI
             _defaultProperties.ApplyTo(_buttonRectTransform, _text, _frontImage, _middleImage, _backImage, _borderImage, _visualsRectTransform);
         }
         
-        public void DoFeedback(ButtonInteractionFeedback feedback, bool doOneshots) => feedback.DoFeedback(_theme.GetButtonProperties(_componentTier), doOneshots, _text);
+        public void DoFeedback(ButtonInteractionFeedbackSO feedback, bool doOneshots) => feedback.DoFeedback(_theme.GetButtonProperties(_componentTier), doOneshots, _text);
         
         public void EndFeedback()
         {
-            _defaultProperties.ApplyTo(_buttonRectTransform, _text, _frontImage, _middleImage, _backImage, _borderImage, _visualsRectTransform, ButtonInteractionFeedback.TWEEN_TIME, ButtonInteractionFeedback.TWEEN_EASE); 
+            _defaultProperties.ApplyTo(_buttonRectTransform, _text, _frontImage, _middleImage, _backImage, _borderImage, _visualsRectTransform, ButtonInteractionFeedbackSO.TWEEN_TIME, ButtonInteractionFeedbackSO.TWEEN_EASE); 
         }
     }
 }

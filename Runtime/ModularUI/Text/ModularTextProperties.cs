@@ -11,13 +11,13 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] TMP_FontAsset _font;
         [SerializeField] int _fontSize;
         [SerializeField] FontStyles _fontStyle;
-        [SerializeField] ModularColor _textColor;
+        [SerializeField] ModularColorSO _textColor;
         [SerializeField] TextAlignmentOptions _textAlignment;
         
         public TMP_FontAsset Font => _font;
         public int FontSize => _fontSize;
         public FontStyles FontStyle => _fontStyle;
-        public ModularColor TextColor => _textColor;
+        public ModularColorSO TextColor => _textColor;
         public TextAlignmentOptions TextAlignment => _textAlignment;
         
         public void ApplyTo(TMP_Text target, float tweenTime = 0f, Ease ease = Ease.OutQuad)
