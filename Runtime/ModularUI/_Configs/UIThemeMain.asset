@@ -12,31 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d44eecd11918e74498125d33ceb733fe, type: 3}
   m_Name: UIThemeMain
   m_EditorClassIdentifier: 
-  _windowBackgroundProperties:
-  - _sprite: {fileID: 21300000, guid: cad778eb2ae2ab94396fc6c55ef4e441, type: 3}
-    _imageColor: {fileID: 11400000, guid: fe309f1f9749d354ab5695183353a4f6, type: 2}
-  - _sprite: {fileID: 21300000, guid: cad778eb2ae2ab94396fc6c55ef4e441, type: 3}
-    _imageColor: {fileID: 11400000, guid: 408b680964df7e64bb48f89afcda12e6, type: 2}
-  _windowBorders:
-  - _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
-    _imageColor: {fileID: 11400000, guid: 6c2d811d89014b945887bf3f512b5f38, type: 2}
-    _contentPadding:
-      m_Left: 20
-      m_Right: 20
-      m_Top: 20
-      m_Bottom: 20
-  - _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
-    _imageColor: {fileID: 11400000, guid: 808986c624850bd429e5818df7d6fa65, type: 2}
-    _contentPadding:
-      m_Left: 20
-      m_Right: 20
-      m_Top: 20
-      m_Bottom: 20
-  _windowContentPadding:
-  - m_Left: 120
-    m_Right: 120
-    m_Top: 60
-    m_Bottom: 20
   _windowProperties:
   - _backgroundProperties:
       _sprite: {fileID: 21300000, guid: cad778eb2ae2ab94396fc6c55ef4e441, type: 3}

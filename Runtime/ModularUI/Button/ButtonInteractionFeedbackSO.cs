@@ -27,7 +27,7 @@ namespace DeadWrongGames.ZModularUI
             if (TryGetNewColor(defaultProperties.Text.TextColor, _textColorMap, _textColorFallback, out ModularColorSO newTextColor))
             {
                 DOTween.Kill(text);
-                text.DOColor(newTextColor, TWEEN_TIME).SetEase(TWEEN_EASE);
+                DOTween.To(getter: () => text.color, setter: c => text.color = c, endValue: newTextColor, duration: TWEEN_TIME).SetEase(TWEEN_EASE);
             }
             
             // Can add more as needed

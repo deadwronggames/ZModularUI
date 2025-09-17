@@ -34,7 +34,7 @@ namespace DeadWrongGames.ZModularUI
             {
                 DOTween.Kill(target);
                 DOTween.To(getter: () => target.fontSize, setter: x => target.fontSize = x, endValue: _fontSize, duration: tweenTime).SetEase(ease);
-                target.DOColor(_textColor, tweenTime).SetEase(ease);
+                DOTween.To(getter: () => target.color, setter: c => target.color = c, endValue: _textColor, duration: tweenTime).SetEase(ease);
             }
             
             target.gameObject.SetActive((_font != null) && (_fontSize > 0));

@@ -21,7 +21,7 @@ namespace DeadWrongGames.ZModularUI
             else
             {
                 DOTween.Kill(target);
-                target.DOColor(_imageColor, tweenTime);
+                DOTween.To(getter: () => target.color, setter: c => target.color = c, endValue: _imageColor, duration: tweenTime).SetEase(ease);
             }
             
             target.gameObject.SetActive(_sprite != null);
