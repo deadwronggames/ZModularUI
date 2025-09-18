@@ -3,7 +3,12 @@
     "version": "1.0.0",
     "displayName": "ZModularUI",
     "description": "Prefabs with themes and configs to easily build UI components from.",
-    "unity": "2022.3",
+    "unity": "6.0",
+    "dependencies": {
+        "com.deadwronggames.zcommon": "1.0.0",
+        "com.deadwronggames.zservies": "1.0.0",
+        "com.deadwronggames.zutils": "1.0.0"
+    },
     "author": {
         "name": "DeadWrong Games",
         "url": "hhtps://x.com/DeadWrong_Games"
