@@ -6,7 +6,7 @@
     "unity": "6.0",
     "dependencies": {
         "com.deadwronggames.zcommon": "1.0.0",
-        "com.deadwronggames.zservies": "1.0.0",
+        "com.deadwronggames.zservices": "1.0.0",
         "com.deadwronggames.zutils": "1.0.0"
     },
     "author": {
