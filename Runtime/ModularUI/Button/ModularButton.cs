@@ -34,8 +34,13 @@ namespace DeadWrongGames.ZModularUI
 
         protected override void Apply()
         {
-            _defaultProperties = _theme.GetButtonProperties(_componentTier);
-            _defaultProperties.ApplyTo(_buttonRectTransform, _text, _frontImage, _middleImage, _backImage, _borderImage, _visualsRectTransform);
+#if UNITY_EDITOR
+            if (!ModularUIThemeSO.JustRecompiled) // Changing RectTransform throws warnings otherwise
+#endif
+            {
+                _defaultProperties = _theme.GetButtonProperties(_componentTier);
+                _defaultProperties.ApplyTo(_buttonRectTransform, _text, _frontImage, _middleImage, _backImage, _borderImage, _visualsRectTransform);
+            }
         }
         
         public void DoFeedback(ButtonInteractionFeedbackSO feedback, bool doOneshots) => feedback.DoFeedback(_theme.GetButtonProperties(_componentTier), doOneshots, _text);

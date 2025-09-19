@@ -1,4 +1,7 @@
 using System;
+using System.Threading.Tasks;
+using DeadWrongGames.ZCommon;
+using DeadWrongGames.ZUtils;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
@@ -6,25 +9,35 @@ using DG.Tweening;
 namespace DeadWrongGames.ZModularUI
 {
     [Serializable]
-    public class ButtonTextProperties
+    public class ButtonTextProperties : BaseModularUIProperty
     {
-        [SerializeField] TMP_FontAsset _font;
+        [SerializeField] AssetReferenceFontAssetSO _fontAssetReference;
         [SerializeField] int _fontSize;
         [SerializeField] ModularColorSO _textColor;
+        private TMP_FontAsset _font;
         
         public TMP_FontAsset Font => _font;
         public int FontSize => _fontSize;
         public ModularColorSO TextColor => _textColor;
         
+        protected override async Task ReloadAddressablesAssets()
+        {
+            if (_fontAssetReference != null)
+                _font = await _fontAssetReference.LoadAssetSafeAsync();
+        }
+        
         public void ApplyTo(TMP_Text target, float tweenTime = 0f, Ease ease = Ease.OutQuad)
         {
+            // Make sure to check all objects that are loaded from Addressables
+            if (!EnsureAssetsLoadedOrInvokeAfter(() => ApplyTo(target, tweenTime, ease), _font)) return;
+            
             target.font = _font;
             target.fontSize = _fontSize;
             if (tweenTime == 0f) target.color = _textColor;
             else
             {
                 DOTween.Kill(target);
-                DOTween.To(getter: () => target.color, setter: c => target.color = c, endValue: _textColor, duration: tweenTime).SetEase(ease);
+                target.DOColor(_textColor, tweenTime).SetEase(ease);
             }
             
             target.gameObject.SetActive((_font != null) && (_fontSize > 0));

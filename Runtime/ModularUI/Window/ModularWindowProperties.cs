@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,7 +7,7 @@ using UnityEngine.UI;
 namespace DeadWrongGames.ZModularUI
 {
     [Serializable]
-    public class ModularWindowProperties
+    public class ModularWindowProperties : BaseModularUIProperty
     {
         [SerializeField] ImageProperties _backgroundProperties;
         [SerializeField] UIBorderProperties _borderProperties;
@@ -15,6 +16,9 @@ namespace DeadWrongGames.ZModularUI
         public ImageProperties BackgroundProperties => _backgroundProperties;
         public UIBorderProperties BorderProperties => _borderProperties;
         public RectOffset WindowContentPadding => _windowContentPadding;
+
+        // No Addressables are used directly by this class
+        protected override Task ReloadAddressablesAssets() => Task.CompletedTask;
 
         public void ApplyTo(Image backgroundImage, Image borderImage, RectTransform contentRectTransform, float tweenTime = 0f, Ease ease = Ease.OutQuad)
         {

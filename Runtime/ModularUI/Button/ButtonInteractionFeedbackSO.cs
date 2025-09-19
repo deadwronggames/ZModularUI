@@ -14,7 +14,7 @@ namespace DeadWrongGames.ZModularUI
         public const Ease TWEEN_EASE = Ease.OutQuad;
         
         [SerializeField] AudioClip _audio;
-        [SerializeField] ColorPair[] _textColorMap;
+        [SerializeField] ColorPair[] _textColorMap = {};
         [SerializeField] ModularColorSO _textColorFallback;
 
         public void DoFeedback(ModularButtonProperties defaultProperties, bool doOneshots, TMP_Text text)
