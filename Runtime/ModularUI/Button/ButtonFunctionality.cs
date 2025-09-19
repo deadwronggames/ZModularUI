@@ -1,4 +1,4 @@
-using DeadWrongGames.ZServices.EventChannels;
+using DeadWrongGames.ZServices.EventChannel;
 using UnityEngine;
 using UnityEngine.EventSystems;
     
