@@ -4,9 +4,14 @@
 
 
 # ZModularUI
-Modular and theme-based UI framework for Unity.  
-Build flexible and easily configurable UIs *Lego style*, using reusable building block components and data-driven configuration.
+Modular and theme-based UI framework for Unity. Build flexible and easily configurable UIs *Lego style*, using reusable building block components and data-driven configuration.
 
+## Installation
+- Install via Unity Package Manager using the Git URL: https://github.com/deadwronggames/ZModularUI
+- Include in your code (when needed) via the namespace: 
+```csharp 
+using DeadWrongGames.ZModularUI;
+```
 
 ## Overview
 - Each UI element (like buttons, texts, windows) derives from a base class that links it to a configuration ScriptableObject, defining its visual and functional behavior.
@@ -37,7 +42,7 @@ The base class ensures that:
 ### Themes & Configs
 - ModularUIThemeSO: The root theme asset containing properties for all tiers of windows, buttons, and text elements.
 - BaseModularUIComponentConfigSO: A per-component configuration that references the theme and optionally defines overrides.
-- Property Classes: Each UI type (e.g. text, button) has a corresponding property set (e.g. ModularTextProperties) that applies settings like font, color, and layout.
+- Property Classes: Each UI type (e.g. text, button) has a corresponding property set (e.g. ModularTextProperties) that defines settings like font, color, and layout.
 - All property classes support Addressable assets, which are cached automatically.
 
 ### Prefabs
@@ -52,14 +57,14 @@ More prefabs (scroll views, tabs, etc.) will be added soon.
 Each prefab follows the modular structure and can be easily customized or extended.
 
 ### Configuration Lifecycle
-- The component calls Setup() to link internal references.
-- Then Apply() applies theme data from the referenced config.
+- The component calls `Setup()` to link internal references.
+- Then `Apply()` applies theme data from the referenced config.
 - Reconfiguration can be triggered manually or automatically after recompilation.
 
 ### Current Status
 - ZModularUI is in active development.
 - The core system (configuration, themes, prefabs) is functional and stable for internal use.
-- the async Addressables handling has still some quirks and is very usntable when not setup carefully
+- the async Addressables handling has still some quirks and is very usntable when not setup carefully.
 
 
 ### Planned additions:
