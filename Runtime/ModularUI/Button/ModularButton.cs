@@ -38,8 +38,8 @@ namespace DeadWrongGames.ZModularUI
             if (!ModularUIThemeSO.JustRecompiled) // Changing RectTransform throws warnings otherwise
 #endif
             {
-                _defaultProperties = _theme.GetButtonProperties(_componentTier);
-                _defaultProperties.ApplyTo(_buttonRectTransform, _text, _frontImage, _middleImage, _backImage, _borderImage, _visualsRectTransform);
+                // _defaultProperties = _theme.GetButtonProperties(_componentTier);
+                // _defaultProperties.ApplyTo(_buttonRectTransform, _text, _frontImage, _middleImage, _backImage, _borderImage, _visualsRectTransform);
             }
         }
         
@@ -47,7 +47,7 @@ namespace DeadWrongGames.ZModularUI
         
         public void EndFeedback()
         {
-            _defaultProperties.ApplyTo(_buttonRectTransform, _text, _frontImage, _middleImage, _backImage, _borderImage, _visualsRectTransform, ButtonInteractionFeedbackSO.TWEEN_TIME, ButtonInteractionFeedbackSO.TWEEN_EASE); 
+            // _defaultProperties.ApplyTo(_buttonRectTransform, _text, _frontImage, _middleImage, _backImage, _borderImage, _visualsRectTransform, ButtonInteractionFeedbackSO.TWEEN_TIME, ButtonInteractionFeedbackSO.TWEEN_EASE); 
         }
     }
 }

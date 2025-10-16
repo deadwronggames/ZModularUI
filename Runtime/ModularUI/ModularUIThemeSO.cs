@@ -44,7 +44,11 @@ namespace DeadWrongGames.ZModularUI
         public static bool JustRecompiled { get; private set; } = true;
         private void OnValidate()
         {
-            if (JustRecompiled) JustRecompiled = false;
+            if (JustRecompiled)
+            {
+                JustRecompiled = false;
+                return;
+            }
         }
 #endif
 
