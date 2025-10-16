@@ -14,7 +14,7 @@ using DeadWrongGames.ZModularUI;
 ```
 
 ## Overview
-- Each UI element (like buttons, texts, windows) derives from a base class that links it to a configuration ScriptableObject, defining its visual and functional behavior.
+- Each UI element (like buttons, texts, windows) derives from a base class that links it to a configuration ScriptableObject, defining its visual behavior.
 - UIs can be assembled *lego-style* using modular prefabs included in the package.  
 - These prefabs are customizable. You can copy them into your project, edit or extend them, and still benefit from the modular system.
 
