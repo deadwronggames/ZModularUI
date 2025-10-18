@@ -13,7 +13,7 @@ namespace DeadWrongGames.ZModularUI
     {
         [SerializeField] AssetReferenceSpriteSO _spriteAssetReference;
         [SerializeField] ModularColorSO _imageColor;
-        [SerializeField] Sprite _sprite;
+        [HideInInspector] [SerializeField] Sprite _sprite; // Serialization is necessary so that value is carried over into build
         
         public Sprite Sprite => _sprite;
         public ModularColorSO ImageColor => _imageColor;
@@ -28,6 +28,7 @@ namespace DeadWrongGames.ZModularUI
         public void ApplyTo(Image target, float tweenTime = 0f, Ease ease = Ease.OutQuad)
         {
             // Make sure to check all objects that are loaded from Addressables
+            target.enabled = (_sprite != null);
             if (!EnsureAssetsLoadedOrInvokeAfter(() => ApplyTo(target, tweenTime, ease), _sprite)) return;
             
             target.sprite = _sprite;
@@ -37,8 +38,6 @@ namespace DeadWrongGames.ZModularUI
                 DOTween.Kill(target);
                 target.DOColor(_imageColor, tweenTime).SetEase(ease);
             }
-            
-            target.gameObject.SetActive(_sprite != null);
         }
     }
 }

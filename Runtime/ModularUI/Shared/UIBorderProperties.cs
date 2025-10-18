@@ -14,7 +14,7 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] AssetReferenceSpriteSO _spriteAssetReference;
         [SerializeField] ModularColorSO _imageColor;
         [SerializeField] RectOffset _contentPadding;
-        [SerializeField] Sprite _sprite;
+        [HideInInspector] [SerializeField] Sprite _sprite; // Serialization is necessary so that value is carried over into build
         public Sprite Sprite => _sprite;
         public ModularColorSO ImageColor => _imageColor;
         public RectOffset ContentPadding => _contentPadding;
@@ -29,6 +29,7 @@ namespace DeadWrongGames.ZModularUI
         public void ApplyTo(Image target, RectTransform targetPadding, float tweenTime = 0f, Ease ease = Ease.OutQuad)
         {
             // Make sure to check all objects that are loaded from Addressables
+            target.enabled = (_sprite != null);
             if (!EnsureAssetsLoadedOrInvokeAfter(() => ApplyTo(target, targetPadding, tweenTime, ease), _sprite)) return;
             
             target.sprite = _sprite;
@@ -42,7 +43,7 @@ namespace DeadWrongGames.ZModularUI
             
             targetPadding.SetPadding(_contentPadding);
             
-            target.gameObject.SetActive(target.sprite != null);
+            
         }
     }
 }

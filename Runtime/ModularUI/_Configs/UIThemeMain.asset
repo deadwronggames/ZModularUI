@@ -55,21 +55,25 @@ MonoBehaviour:
     _fontStyle: 16
     _textColor: {fileID: 11400000, guid: 6c2d811d89014b945887bf3f512b5f38, type: 2}
     _textAlignment: 514
+    _font: {fileID: 11400000, guid: 846a1721d97010948a2c929393faf5d3, type: 2}
   - _fontAssetReference: {fileID: 11400000, guid: c9ae901140b3462419a9edef892dcc5c, type: 2}
     _fontSize: 60
     _fontStyle: 32
     _textColor: {fileID: 11400000, guid: bf9cefe0d9bc473459b21ed90c6a1aad, type: 2}
     _textAlignment: 514
+    _font: {fileID: 11400000, guid: 846a1721d97010948a2c929393faf5d3, type: 2}
   - _fontAssetReference: {fileID: 11400000, guid: dd2cb12d3ddb72c45bed4611124e8a82, type: 2}
     _fontSize: 30
     _fontStyle: 0
     _textColor: {fileID: 11400000, guid: bf9cefe0d9bc473459b21ed90c6a1aad, type: 2}
     _textAlignment: 264
+    _font: {fileID: 11400000, guid: e22d42403af647c42bd12c13dbb03cfb, type: 2}
   - _fontAssetReference: {fileID: 11400000, guid: dd2cb12d3ddb72c45bed4611124e8a82, type: 2}
     _fontSize: 24
     _fontStyle: 0
     _textColor: {fileID: 11400000, guid: bf9cefe0d9bc473459b21ed90c6a1aad, type: 2}
     _textAlignment: 264
+    _font: {fileID: 11400000, guid: e22d42403af647c42bd12c13dbb03cfb, type: 2}
   _buttonProperties:
   - _buttonSize: {x: 600, y: 200}
     _text:

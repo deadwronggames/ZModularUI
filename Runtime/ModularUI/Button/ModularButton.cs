@@ -24,7 +24,7 @@ namespace DeadWrongGames.ZModularUI
         {
             _buttonRectTransform = GetComponent<RectTransform>();
 
-            // make sure the visual elements have the correct properties
+            // Making sure the visual elements have the correct properties
             _text.fontStyle = FontStyles.Bold | FontStyles.UpperCase;
             _text.alignment = TextAlignmentOptions.Center;
             _frontImage.preserveAspect = true;
@@ -35,7 +35,7 @@ namespace DeadWrongGames.ZModularUI
         protected override void Apply()
         {
 #if UNITY_EDITOR
-            if (!ModularUIThemeSO.JustRecompiled) // Changing RectTransform throws warnings otherwise
+            if (!ModularUIThemeSO.JustRecompiled) // Changing RectTransform throws annoying warnings otherwise
 #endif
             {
                 _defaultProperties = _theme.GetButtonProperties(_componentTier);
@@ -47,7 +47,7 @@ namespace DeadWrongGames.ZModularUI
         
         public void EndFeedback()
         {
-            _defaultProperties.ApplyTo(_buttonRectTransform, _text, _frontImage, _middleImage, _backImage, _borderImage, _visualsRectTransform, ButtonInteractionFeedbackSO.TWEEN_TIME, ButtonInteractionFeedbackSO.TWEEN_EASE, test: true); 
+            _defaultProperties.ApplyTo(_buttonRectTransform, _text, _frontImage, _middleImage, _backImage, _borderImage, _visualsRectTransform, ButtonInteractionFeedbackSO.TWEEN_TIME, ButtonInteractionFeedbackSO.TWEEN_EASE); 
         }
     }
 }

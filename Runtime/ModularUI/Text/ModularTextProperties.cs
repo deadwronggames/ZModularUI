@@ -5,7 +5,6 @@ using DeadWrongGames.ZUtils;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace DeadWrongGames.ZModularUI
 {
@@ -17,7 +16,7 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] FontStyles _fontStyle;
         [SerializeField] ModularColorSO _textColor;
         [SerializeField] TextAlignmentOptions _textAlignment;
-        private TMP_FontAsset _font;
+        [HideInInspector] [SerializeField] TMP_FontAsset _font; // Serialization is necessary so that value is carried over into build
         
         public TMP_FontAsset Font => _font;
         public int FontSize => _fontSize;
@@ -34,6 +33,7 @@ namespace DeadWrongGames.ZModularUI
         public void ApplyTo(TMP_Text target, float tweenTime = 0f, Ease ease = Ease.OutQuad)
         {
             // Make sure to check all objects that are loaded from Addressables
+            target.enabled = ((_font != null) && (_fontSize > 0));
             if (!EnsureAssetsLoadedOrInvokeAfter(() => ApplyTo(target, tweenTime, ease), _font)) return;
     
             target.font = _font;
@@ -50,8 +50,6 @@ namespace DeadWrongGames.ZModularUI
                 DOTween.To(getter: () => target.fontSize, setter: x => target.fontSize = x, endValue: _fontSize, duration: tweenTime).SetEase(ease);
                 target.DOColor(_textColor, tweenTime).SetEase(ease);
             }
-            
-            target.gameObject.SetActive((_font != null) && (_fontSize > 0));
         }
     }
 }

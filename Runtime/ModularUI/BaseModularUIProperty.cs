@@ -1,10 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using DeadWrongGames.ZServices.Task;
+using DeadWrongGames.ZUtils;
 
 namespace DeadWrongGames.ZModularUI
 {
@@ -55,9 +55,15 @@ namespace DeadWrongGames.ZModularUI
         // Inheritors should make sure to use this before using Addressable assets
         protected bool EnsureAssetsLoadedOrInvokeAfter(Action actionWhenReady, params object[] objectsToCheck)
         {
-            if (objectsToCheck.All(obj => obj != null)) return true;
+            // If nothing is null we are good
+            if (objectsToCheck.AllNotNull()) return true;
             
-            ReloadAddressablesAssets().ContinueWith(_ => MainThreadDispatcher.Enqueue(actionWhenReady));
+            // Otherwise reload assets, check if now nothing is null and then invoke to action
+            ReloadAddressablesAssets().ContinueWith(_ =>
+            {
+                if (objectsToCheck.AllNotNull())
+                    MainThreadDispatcher.Enqueue(actionWhenReady);
+            });
             return false;  
         }
     }
