@@ -23,8 +23,8 @@ namespace DeadWrongGames.ZModularUI
         {
             // first check for content file, then string set in inspector, else default string
             if (_contentFile != null) _content = _contentFile.text;
-            string contentString = (!string.IsNullOrEmpty(_content)) ? _content : ModularTextConfigSO.GetDefaultText(_componentTier);
-            _text.text =  ZMethodsString.FormattedInspectorString(contentString); 
+            if (string.IsNullOrEmpty(_content)) _content = ModularTextConfigSO.GetDefaultText(_componentTier);
+            _text.text =  ZMethodsString.FormattedInspectorString(_content); 
             
             // apply text properties
             ModularTextProperties properties = _theme.GetTextProperties(_componentTier);

@@ -13,7 +13,7 @@ namespace DeadWrongGames.ZModularUI
     {
         [SerializeField] AssetReferenceSpriteSO _spriteAssetReference;
         [SerializeField] ModularColorSO _imageColor;
-        private Sprite _sprite;
+        [SerializeField] Sprite _sprite;
         
         public Sprite Sprite => _sprite;
         public ModularColorSO ImageColor => _imageColor;

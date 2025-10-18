@@ -54,7 +54,7 @@ MonoBehaviour:
   _overrideProperties: 0
   _componentTier: 0
   _contentFile: {fileID: 0}
-  _content: 
+  _content: Example Header
 --- !u!114 &4085194687104354572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,8 +77,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Example Header
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 846a1721d97010948a2c929393faf5d3, type: 2}
+  m_sharedMaterial: {fileID: -3747550759724706533, guid: 846a1721d97010948a2c929393faf5d3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
-  m_ActiveFontFeatures: 00000000
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1

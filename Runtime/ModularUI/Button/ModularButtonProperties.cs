@@ -28,12 +28,15 @@ namespace DeadWrongGames.ZModularUI
         // No Addressables are used directly by this class
         protected override Task ReloadAddressablesAssets() => Task.CompletedTask;
 
-        public void ApplyTo(RectTransform buttonRectTransform, TMP_Text text, Image frontImage, Image middleImage, Image backImage, Image borderImage, RectTransform buttonVisualsRectTransform, float tweenTime = 0f, Ease ease = Ease.OutQuad)
+        public void ApplyTo(RectTransform buttonRectTransform, TMP_Text text, Image frontImage, Image middleImage, Image backImage, Image borderImage, RectTransform buttonVisualsRectTransform, float tweenTime = 0f, Ease ease = Ease.OutQuad, bool test = false)
         {
+            
             buttonRectTransform.SetSize(_buttonSize);
             _text.ApplyTo(text, tweenTime, ease);
+            if (test) return;
             _frontImage.ApplyTo(frontImage, tweenTime, ease);
             _middleImage.ApplyTo(middleImage, tweenTime, ease);
+            // crash
             _backImage.ApplyTo(backImage, tweenTime, ease);
             _border.ApplyTo(borderImage, buttonVisualsRectTransform, tweenTime, ease);
         }

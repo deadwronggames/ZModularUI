@@ -20,7 +20,7 @@ namespace DeadWrongGames.ZModularUI
 
         private ModularButton _modularButton;
         
-        // TODO could refactor into state machine
+        // TODO could / should refactor into state machine
         private bool _isHovered;
         private bool _isPressed;
         private bool _isSelected;

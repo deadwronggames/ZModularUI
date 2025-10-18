@@ -21,7 +21,7 @@ namespace DeadWrongGames.ZModularUI
 
         private void OnValidate()
         {
-//            Configure();
+            Configure();
         }
         
         public void Configure()
