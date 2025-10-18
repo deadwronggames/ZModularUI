@@ -21,10 +21,7 @@ namespace DeadWrongGames.ZModularUI
         protected override async Task ReloadAddressablesAssets()
         {
             if (_spriteAssetReference != null)
-            {
-                if (_spriteAssetReference != null)
-                    _sprite = await _spriteAssetReference.LoadAssetSafeAsync();
-            }
+                _sprite = await _spriteAssetReference.LoadAssetSafeAsync();
         }
         
         

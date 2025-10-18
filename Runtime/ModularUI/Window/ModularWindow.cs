@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace DeadWrongGames.ZModularUI
 {
-    public class ModularWindow : BaseModularUIComponent<ModularTextConfigSO>
+    public class ModularWindow : BaseModularUIComponent<ModularWindowConfigSO>
     {
         [SerializeField] Tier _componentTier;
         
