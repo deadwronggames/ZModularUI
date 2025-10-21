@@ -37,18 +37,8 @@ namespace DeadWrongGames.ZModularUI
         [Header("Modular Buttons")]
         [SerializeField] ModularButtonProperties[] _buttonProperties;
         public ModularButtonProperties GetButtonProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _buttonProperties);
-
         
-#if UNITY_EDITOR
-        // Calling Addressables or changing RectTransforms after recompile causes warnings
-        public static bool JustRecompiled { get; private set; } = true;
-        private void OnValidate()
-        {
-            if (JustRecompiled) JustRecompiled = false;
-        }
-#endif
-
-
+        
 #if UNITY_EDITOR
         [Button("Reconfigure all Modular UI")]
         public void ReconfigureAll()

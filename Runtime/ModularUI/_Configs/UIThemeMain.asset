@@ -80,6 +80,7 @@ MonoBehaviour:
       _fontAssetReference: {fileID: 11400000, guid: c9ae901140b3462419a9edef892dcc5c, type: 2}
       _fontSize: 100
       _textColor: {fileID: 11400000, guid: 6c2d811d89014b945887bf3f512b5f38, type: 2}
+      _font: {fileID: 11400000, guid: 846a1721d97010948a2c929393faf5d3, type: 2}
     _frontImage:
       _spriteAssetReference: {fileID: 0}
       _imageColor: {fileID: 0}
@@ -106,6 +107,7 @@ MonoBehaviour:
       _fontAssetReference: {fileID: 11400000, guid: c9ae901140b3462419a9edef892dcc5c, type: 2}
       _fontSize: 60
       _textColor: {fileID: 11400000, guid: 7ff0228985dea394fb916a210e97fbf5, type: 2}
+      _font: {fileID: 11400000, guid: 846a1721d97010948a2c929393faf5d3, type: 2}
     _frontImage:
       _spriteAssetReference: {fileID: 0}
       _imageColor: {fileID: 0}
@@ -132,6 +134,7 @@ MonoBehaviour:
       _fontAssetReference: {fileID: 0}
       _fontSize: 0
       _textColor: {fileID: 0}
+      _font: {fileID: 0}
     _frontImage:
       _spriteAssetReference: {fileID: 11400000, guid: d2134e742ec192e4ca829e650ae19c70, type: 2}
       _imageColor: {fileID: 11400000, guid: 408b680964df7e64bb48f89afcda12e6, type: 2}
@@ -158,6 +161,7 @@ MonoBehaviour:
       _fontAssetReference: {fileID: 11400000, guid: c9ae901140b3462419a9edef892dcc5c, type: 2}
       _fontSize: 50
       _textColor: {fileID: 11400000, guid: bf9cefe0d9bc473459b21ed90c6a1aad, type: 2}
+      _font: {fileID: 11400000, guid: 846a1721d97010948a2c929393faf5d3, type: 2}
     _frontImage:
       _spriteAssetReference: {fileID: 0}
       _imageColor: {fileID: 0}

@@ -1,5 +1,6 @@
 using DeadWrongGames.ZCommon;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,16 +32,11 @@ namespace DeadWrongGames.ZModularUI
             _middleImage.preserveAspect = true;
             _backImage.preserveAspect = false;
         }
-
+        
         protected override void Apply()
         {
-#if UNITY_EDITOR
-            if (!ModularUIThemeSO.JustRecompiled) // Changing RectTransform throws annoying warnings otherwise
-#endif
-            {
-                _defaultProperties = _theme.GetButtonProperties(_componentTier);
-                _defaultProperties.ApplyTo(_buttonRectTransform, _text, _frontImage, _middleImage, _backImage, _borderImage, _visualsRectTransform);
-            }
+            _defaultProperties = _theme.GetButtonProperties(_componentTier);
+            _defaultProperties.ApplyTo(_buttonRectTransform, _text, _frontImage, _middleImage, _backImage, _borderImage, _visualsRectTransform);
         }
         
         public void DoFeedback(ButtonInteractionFeedbackSO feedback, bool doOneshots) => feedback.DoFeedback(_theme.GetButtonProperties(_componentTier), doOneshots, _text);
