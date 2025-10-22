@@ -27,11 +27,14 @@ namespace DeadWrongGames.ZModularUI
         
         public void ApplyTo(Image target, float tweenTime = 0f, Ease ease = Ease.OutQuad)
         {
-            // Make sure to check all objects that are loaded from Addressables
+            // Do this regardless of weather _sprite is null
+            if (_spriteAssetReference == null) _sprite = null;
+            target.sprite = _sprite;
             target.enabled = (_sprite != null);
+            
+            // Make sure to check all objects that are loaded from Addressables
             if (!EnsureAssetsLoadedOrInvokeAfter(() => ApplyTo(target, tweenTime, ease), _sprite)) return;
             
-            target.sprite = _sprite;
             if (tweenTime == 0f) target.color = _imageColor;
             else
             {
