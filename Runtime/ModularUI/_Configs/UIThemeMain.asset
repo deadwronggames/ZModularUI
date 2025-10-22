@@ -139,10 +139,15 @@ MonoBehaviour:
       _imageColor: {fileID: 11400000, guid: 808986c624850bd429e5818df7d6fa65, type: 2}
       _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
       _contentPadding:
-        m_Left: 20
-        m_Right: 20
+        m_Left: 24
+        m_Right: 24
         m_Top: 20
         m_Bottom: 20
+    _fillPadding:
+      m_Left: 27
+      m_Right: 27
+      m_Top: 23
+      m_Bottom: 23
   _textProperties:
   - _fontAssetReference: {fileID: 11400000, guid: c9ae901140b3462419a9edef892dcc5c, type: 2}
     _fontSize: 90

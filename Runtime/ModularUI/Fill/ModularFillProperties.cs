@@ -13,6 +13,7 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] ImageProperties _changeIndicatorProperties;
         [SerializeField] ImageProperties _fillProperties;
         [SerializeField] UIBorderProperties _borderProperties;
+        [SerializeField] RectOffset _fillPadding;
         
         public ImageProperties BackgroundProperties => _backgroundProperties;
         public ImageProperties ChangeIndicatorProperties => _changeIndicatorProperties;
@@ -25,14 +26,14 @@ namespace DeadWrongGames.ZModularUI
         
         public void ApplyTo(Image backgroundImage, Image changeIndicatorImage, Image fillImage, Image borderImage, float tweenTime = 0f, Ease ease = Ease.OutQuad)
         {
-            // Apply Image properties
             _backgroundProperties.ApplyTo(backgroundImage, tweenTime, ease);
             _changeIndicatorProperties.ApplyTo(changeIndicatorImage, tweenTime, ease);
             _fillProperties.ApplyTo(fillImage, tweenTime, ease);
 
-            // Apply padding
-            RectTransform[] paddingTargets = { backgroundImage.rectTransform, changeIndicatorImage.rectTransform, fillImage.rectTransform };
-            _borderProperties.ApplyTo(borderImage, paddingTargets, tweenTime, ease);
+            _borderProperties.ApplyTo(borderImage, backgroundImage.rectTransform, tweenTime, ease);
+            
+            changeIndicatorImage.rectTransform.SetPadding(_fillPadding);
+            fillImage.rectTransform.SetPadding(_fillPadding);
         }
     }
 }
