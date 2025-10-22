@@ -9,7 +9,7 @@ using DG.Tweening;
 namespace DeadWrongGames.ZModularUI
 {
     [Serializable]
-    public class ButtonTextProperties : BaseModularUIProperty
+    public class ModularButtonTextProperties : BaseModularUIProperty
     {
         [SerializeField] AssetReferenceFontAssetSO _fontAssetReference;
         [SerializeField] int _fontSize;

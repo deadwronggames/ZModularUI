@@ -12,14 +12,14 @@ namespace DeadWrongGames.ZModularUI
     public class ModularButtonProperties : BaseModularUIProperty
     {
         [SerializeField] Vector2 _buttonSize;
-        [SerializeField] ButtonTextProperties _text;
+        [SerializeField] ModularButtonTextProperties _text;
         [SerializeField] ImageProperties _frontImage;
         [SerializeField] ImageProperties _middleImage;
         [SerializeField] ImageProperties _backImage;
         [SerializeField] UIBorderProperties _border;
 
         public Vector2 ButtonSize => _buttonSize ;
-        public ButtonTextProperties Text => _text ;
+        public ModularButtonTextProperties Text => _text ;
         public ImageProperties FrontImage => _frontImage ;
         public ImageProperties MiddleImage => _middleImage ;
         public ImageProperties BackImage => _backImage ;
