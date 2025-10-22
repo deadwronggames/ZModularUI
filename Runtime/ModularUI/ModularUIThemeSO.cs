@@ -24,9 +24,14 @@ namespace DeadWrongGames.ZModularUI
     [CreateAssetMenu(menuName = "Scriptable Objects/ModularUI/UITheme", fileName = "UITheme", order = 0)]
     public class ModularUIThemeSO : ScriptableObject
     {
-        [Header("Modular Windows")]
-        [SerializeField] ModularWindowProperties[] _windowProperties;
-        public ModularWindowProperties GetWindowProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _windowProperties);
+        [Header("Modular Buttons")]
+        [SerializeField] ModularButtonProperties[] _buttonProperties;
+        public ModularButtonProperties GetButtonProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _buttonProperties);
+        
+        
+        [Header("Modular Fills")]
+        [SerializeField] ModularFillProperties[] _fillProperties;
+        public ModularFillProperties GetFillProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _fillProperties);
         
         
         [Header("Modular Text")]
@@ -34,9 +39,9 @@ namespace DeadWrongGames.ZModularUI
         public ModularTextProperties GetTextProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _textProperties);
         
         
-        [Header("Modular Buttons")]
-        [SerializeField] ModularButtonProperties[] _buttonProperties;
-        public ModularButtonProperties GetButtonProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _buttonProperties);
+        [Header("Modular Windows")]
+        [SerializeField] ModularWindowProperties[] _windowProperties;
+        public ModularWindowProperties GetWindowProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _windowProperties);
         
         
 #if UNITY_EDITOR

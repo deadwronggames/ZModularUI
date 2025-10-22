@@ -23,7 +23,7 @@ namespace DeadWrongGames.ZModularUI
         public void ApplyTo(Image backgroundImage, Image borderImage, RectTransform contentRectTransform, float tweenTime = 0f, Ease ease = Ease.OutQuad)
         {
             _backgroundProperties.ApplyTo(backgroundImage, tweenTime, ease);
-            _borderProperties.ApplyTo(borderImage, backgroundImage.rectTransform,tweenTime, ease);
+            _borderProperties.ApplyTo(borderImage, backgroundImage.rectTransform, tweenTime, ease);
             contentRectTransform.SetPadding(_windowContentPadding);
         }
     }
