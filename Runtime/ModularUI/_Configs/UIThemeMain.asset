@@ -148,6 +148,33 @@ MonoBehaviour:
       m_Right: 27
       m_Top: 23
       m_Bottom: 23
+  _fillCircularProperties:
+  - _backgroundProperties:
+      _spriteAssetReference: {fileID: 11400000, guid: d2134e742ec192e4ca829e650ae19c70, type: 2}
+      _imageColor: {fileID: 11400000, guid: bf9cefe0d9bc473459b21ed90c6a1aad, type: 2}
+      _sprite: {fileID: 21300000, guid: fdfda0b04cc182c49bfdc737a23ef69b, type: 3}
+    _changeIndicatorProperties:
+      _spriteAssetReference: {fileID: 11400000, guid: d2134e742ec192e4ca829e650ae19c70, type: 2}
+      _imageColor: {fileID: 11400000, guid: 6c2d811d89014b945887bf3f512b5f38, type: 2}
+      _sprite: {fileID: 21300000, guid: fdfda0b04cc182c49bfdc737a23ef69b, type: 3}
+    _fillProperties:
+      _spriteAssetReference: {fileID: 11400000, guid: d2134e742ec192e4ca829e650ae19c70, type: 2}
+      _imageColor: {fileID: 11400000, guid: 7ff0228985dea394fb916a210e97fbf5, type: 2}
+      _sprite: {fileID: 21300000, guid: fdfda0b04cc182c49bfdc737a23ef69b, type: 3}
+    _borderProperties:
+      _spriteAssetReference: {fileID: 11400000, guid: e22b37b5b57d1ab4f9aeeeeeec40268b, type: 2}
+      _imageColor: {fileID: 11400000, guid: 808986c624850bd429e5818df7d6fa65, type: 2}
+      _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
+      _contentPadding:
+        m_Left: 24
+        m_Right: 24
+        m_Top: 20
+        m_Bottom: 20
+    _fillPadding:
+      m_Left: 30
+      m_Right: 30
+      m_Top: 30
+      m_Bottom: 30
   _textProperties:
   - _fontAssetReference: {fileID: 11400000, guid: c9ae901140b3462419a9edef892dcc5c, type: 2}
     _fontSize: 90

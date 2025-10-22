@@ -31,7 +31,9 @@ namespace DeadWrongGames.ZModularUI
         
         [Header("Modular Fills")]
         [SerializeField] ModularFillProperties[] _fillProperties;
+        [SerializeField] ModularFillProperties[] _fillCircularProperties;
         public ModularFillProperties GetFillProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _fillProperties);
+        public ModularFillProperties GetFillCircularProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _fillCircularProperties);
         
         
         [Header("Modular Text")]
