@@ -26,11 +26,19 @@ namespace DeadWrongGames.ZModularUI
                 _font = await _fontAssetReference.LoadAssetSafeAsync();
         }
         
-        public virtual void ApplyTo(TMP_Text target, float tweenTime = 0f, Ease ease = Ease.OutQuad)
+        public virtual void ApplyTo(TMP_Text target, float tweenTime = 0f, Ease ease = Ease.OutQuad) => ApplyToInternal(target, tweenTime, ease);
+        
+        /// <summary>
+        /// Internal helper that applies the properties immediately if assets are ready.
+        /// Returns true if applied immediately, false if deferred until assets are loaded.
+        /// This allows derived classes to apply additional properties only after the base properties
+        /// (like fonts or sprites) are guaranteed to exist, avoiding flicker or invalid state.
+        /// </summary>
+        protected bool ApplyToInternal(TMP_Text target, float tweenTime = 0f, Ease ease = Ease.OutQuad)
         {
             // Make sure to check all objects that are loaded from Addressables
             target.enabled = ((_font != null) && (_fontSize > 0));
-            if (!EnsureAssetsLoadedOrInvokeAfter(() => ApplyTo(target, tweenTime, ease), _font)) return;
+            if (!EnsureAssetsLoadedOrInvokeAfter(() => ApplyToInternal(target, tweenTime, ease), _font)) return false;
             
             target.font = _font;
             target.fontSize = _fontSize;
@@ -40,6 +48,8 @@ namespace DeadWrongGames.ZModularUI
                 DOTween.Kill(target);
                 target.DOColor(_textColor, tweenTime).SetEase(ease);
             }
+
+            return true;
         }
     }
 }
