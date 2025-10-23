@@ -26,7 +26,7 @@ namespace DeadWrongGames.ZModularUI
         // No Addressables are used directly by this class
         protected override Task ReloadAddressablesAssets() => Task.CompletedTask;
         
-        public void ApplyTo(Image backgroundImage, Image changeIndicatorImage, Image fillImage, Image borderImage, out BaseModularFillChangeEffectSO changeEffect, float tweenTime = 0f, Ease ease = Ease.OutQuad)
+        public void ApplyTo(Image backgroundImage, Image changeIndicatorImage, Image fillImage, Image borderImage, float tweenTime = 0f, Ease ease = Ease.OutQuad)
         {
             _backgroundProperties.ApplyTo(backgroundImage, tweenTime, ease);
             _changeIndicatorProperties.ApplyTo(changeIndicatorImage, tweenTime, ease);
@@ -36,8 +36,6 @@ namespace DeadWrongGames.ZModularUI
             
             changeIndicatorImage.rectTransform.SetPadding(_fillPadding);
             fillImage.rectTransform.SetPadding(_fillPadding);
-
-            changeEffect = _changeEffect;
         }
     }
 }

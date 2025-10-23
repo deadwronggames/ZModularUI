@@ -16,14 +16,17 @@ namespace DeadWrongGames.ZModularUI
             return array[index];
         }
         
-        public static void SetPadding(this RectTransform rectTransform, RectOffset padding)
+        public static void SetPadding(this RectTransform rectTransform, RectOffset padding, bool doOverrideSafety = false)
         {
-            // Check if anchors are stretched in both directions
-            if (!ZMethods.IsSameFloatValue(rectTransform.anchorMin.x, 0f) || !ZMethods.IsSameFloatValue(rectTransform.anchorMax.x, 1f) ||
-                !ZMethods.IsSameFloatValue(rectTransform.anchorMin.y, 0f) || !ZMethods.IsSameFloatValue(rectTransform.anchorMax.y, 1f))
+            if (!doOverrideSafety)
             {
-                $"RectTransform {rectTransform.name} is not stretched in all directions. Returning.".Log(level: ZMethodsDebug.LogLevel.Warning);
-                return;
+                // Check if anchors are stretched in both directions
+                if (!ZMethods.IsSameFloatValue(rectTransform.anchorMin.x, 0f) || !ZMethods.IsSameFloatValue(rectTransform.anchorMax.x, 1f) ||
+                    !ZMethods.IsSameFloatValue(rectTransform.anchorMin.y, 0f) || !ZMethods.IsSameFloatValue(rectTransform.anchorMax.y, 1f))
+                {
+                    $"RectTransform {rectTransform.name} is not stretched in all directions. Returning.".Log(level: ZMethodsDebug.LogLevel.Warning);
+                    return;
+                }
             }
 
 #if UNITY_EDITOR
@@ -35,6 +38,22 @@ namespace DeadWrongGames.ZModularUI
                 rectTransform.offsetMin = new Vector2(padding.left, padding.bottom);
                 rectTransform.offsetMax = new Vector2(-padding.right, -padding.top);
             };
+        }
+        
+        /// <summary>
+        /// Honestly I think just two colors are needed...
+        /// Default: For "Normal", "Highlighted" which means hovered, "Selected" (scrollbar never needs to be "selected")
+        /// Highlighted: When handle is "Pressed", or value is changed via scroll wheel (scroll wheel interaction is stupid by default and needs to be implemented manually)
+        /// Disabled: I think a scrollbar will always be hidden instead of disabled
+        ///</summary>
+        public static void SetHandleColorBlock(this Scrollbar scrollbar, Color colorDefault, Color colorHighlighted)
+        {
+            scrollbar.colors = scrollbar.colors.With(
+                normalColor: colorDefault,
+                highlightedColor: colorDefault,
+                pressedColor: colorHighlighted,
+                selectedColor: colorDefault
+            );
         }
         
         public static void ReconfigureAllModularUI()

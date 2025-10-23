@@ -1,4 +1,5 @@
 using System;
+using DeadWrongGames.ZUtils;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
@@ -18,17 +19,17 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] [Range(0, 10)] [Tooltip("Offs and ons")] int _numberBlinks = 4;
         [SerializeField] [Range(0.05f, 1f)] [Tooltip("Time for one blink")] float _blinkFrequencySeconds = 0.2f;
 
-        public override void Play(Image mainFill, Image changeIndicator, float oldFillValue, float newFillValue, bool doTweening, bool useUnscaledTime, Action onCompleteAction)
+        public override void Play(Image mainFill, Image changeIndicator, float oldFillValue, float newFillValue, bool doTweening, int tweenId, bool useUnscaledTime, Action onCompleteAction)
         {
             bool isIncrease = (newFillValue > oldFillValue);
             Image imageFirst = (isIncrease) ? changeIndicator : mainFill;
             Image imageSecond = (isIncrease) ? mainFill : changeIndicator;
             
             // Update first image
-            PlayChange(imageFirst, newFillValue, doTweening, useUnscaledTime, onCompleteAction);
+            PlayChange(imageFirst, newFillValue, doTweening, tweenId, useUnscaledTime, onCompleteAction);
 
             // Blink sequence
-            Sequence blinkSequence = DOTween.Sequence();
+            Sequence blinkSequence = DOTween.Sequence().SetId(tweenId);
             
             // --- Delay
             blinkSequence.AppendInterval(_blinkDelaySeconds);
@@ -44,7 +45,7 @@ namespace DeadWrongGames.ZModularUI
             }
             
             // --- Update second image
-            blinkSequence.AppendCallback(() => PlayChange(imageSecond, newFillValue, doTweening, useUnscaledTime));
+            blinkSequence.AppendCallback(() => PlayChange(imageSecond, newFillValue, doTweening, tweenId, useUnscaledTime));
             
             // --- Make sure, the blinking change indicator always ends up enabled
             blinkSequence.OnKill(() => changeIndicator.enabled = true);

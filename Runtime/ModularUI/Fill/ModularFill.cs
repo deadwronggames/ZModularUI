@@ -1,6 +1,7 @@
 using System;
 using DeadWrongGames.ZCommon;
 using DeadWrongGames.ZUtils;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,7 +20,9 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] Image _changeIndicatorImage;
         [SerializeField] Image _fillImage;
         [SerializeField] Image _borderImage;
-
+        
+        private int _tweenID => GetInstanceID();
+        
         private BaseModularFillChangeEffectSO _changeEffectSO;
         private bool _doNonDefaultChangeEffect => (_changeEffectSO != null);
         private float _currentValue;
@@ -34,7 +37,8 @@ namespace DeadWrongGames.ZModularUI
             
             // Apply theme properties for either circular or normal fill
             ModularFillProperties properties = (_isCircularFill) ? _theme.GetFillCircularProperties(_componentTier) : _theme.GetFillProperties(_componentTier);
-            properties.ApplyTo(_backgroundImage, _changeIndicatorImage, _fillImage, _borderImage, out _changeEffectSO);
+            properties.ApplyTo(_backgroundImage, _changeIndicatorImage, _fillImage, _borderImage);
+            _changeEffectSO = properties.ChangeEffect;
             
             // Configure fill method and origin for main and change indicator images
             _changeIndicatorImage.fillMethod = (_isCircularFill) ? Image.FillMethod.Radial360 : Image.FillMethod.Horizontal;
@@ -45,7 +49,8 @@ namespace DeadWrongGames.ZModularUI
 
         private void OnDestroy()
         {
-            transform.KillTweensRecursively(); // Avoid warnings
+            // Avoid warnings
+            DOTween.Kill(_tweenID);
         }
 
         // Change fill amount, either tween or instant 
@@ -56,13 +61,13 @@ namespace DeadWrongGames.ZModularUI
             => HandleFillAmountChange(newFillAmount, doTweening: false);
         private void HandleFillAmountChange(float newFillAmount, bool doTweening, bool useUnscaledTime = false, Action onCompleteAction = null)
         {
-            EnsureConfigured(); 
-            transform.KillTweensRecursively();
+            EnsureConfigured();
+            DOTween.Kill(_tweenID);
 
             // Play custom change effect if assigned, otherwise default effect
             doTweening = (doTweening && _doAllowTweening);
-            if (_doNonDefaultChangeEffect) _changeEffectSO.Play(_fillImage, _changeIndicatorImage, _currentValue, newFillAmount, doTweening, useUnscaledTime, onCompleteAction);
-            else BaseModularFillChangeEffectSO.PlayChange(_fillImage, newFillAmount, doTweening, useUnscaledTime, onCompleteAction);
+            if (_doNonDefaultChangeEffect) _changeEffectSO.Play(_fillImage, _changeIndicatorImage, _currentValue, newFillAmount, doTweening, _tweenID, useUnscaledTime, onCompleteAction);
+            else BaseModularFillChangeEffectSO.PlayChange(_fillImage, newFillAmount, doTweening, _tweenID, useUnscaledTime, onCompleteAction);
 
             _currentValue = newFillAmount;
         }

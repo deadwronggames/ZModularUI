@@ -16,17 +16,18 @@ namespace DeadWrongGames.ZModularUI
             new Keyframe(1f, 1f, 0f, 0f)
         );
         
-        public abstract void Play(Image mainFill, Image changeIndicator, float oldFillValue, float newFillValue, bool doTweening, bool useUnscaledTime, Action onCompleteAction);
+        public abstract void Play(Image mainFill, Image changeIndicator, float oldFillValue, float newFillValue, bool doTweening, int tweenId, bool useUnscaledTime, Action onCompleteAction);
 
         /// <summary>
         /// Default effect for changing fill amount, tweened or instant.
         /// Just Uses the main fill image, no additional change indicator.
         /// </summary>
-        public static void PlayChange(Image fillImage, float newFillValue, bool doTweening, bool useUnscaledTime = false, Action onCompleteAction = null)
+        public static void PlayChange(Image fillImage, float newFillValue, bool doTweening, int tweenId, bool useUnscaledTime = false, Action onCompleteAction = null)
         {
             if (doTweening)
             {
                 fillImage.DOFillAmount(newFillValue, CHANGE_TWEEN_DURATION)
+                    .SetId(tweenId)
                     .SetEase(CHANGE_TWEEN_EASE)
                     .SetUpdate(useUnscaledTime)
                     .OnComplete(() => onCompleteAction?.Invoke());

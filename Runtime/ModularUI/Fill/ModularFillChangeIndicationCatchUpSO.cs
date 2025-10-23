@@ -14,16 +14,16 @@ namespace DeadWrongGames.ZModularUI
     {
         [SerializeField] float _catchUpDelay = 0.8f;
         
-        public override void Play(Image mainFill, Image changeIndicator, float oldFillValue, float newFillValue, bool doTweening, bool useUnscaledTime, Action onCompleteAction)
+        public override void Play(Image mainFill, Image changeIndicator, float oldFillValue, float newFillValue, bool doTweening, int tweenId, bool useUnscaledTime, Action onCompleteAction)
         {
             bool isIncrease = (newFillValue > oldFillValue);
             Image imageFirst = (isIncrease) ? changeIndicator : mainFill;
             Image imageSecond = (isIncrease) ? mainFill : changeIndicator;
 
-            PlayChange(imageFirst, newFillValue, doTweening, useUnscaledTime, onCompleteAction);
+            PlayChange(imageFirst, newFillValue, doTweening, tweenId, useUnscaledTime, onCompleteAction);
             DOTween.Sequence()
                 .AppendInterval(_catchUpDelay)
-                .AppendCallback(() => PlayChange(imageSecond, newFillValue, doTweening, useUnscaledTime))
+                .AppendCallback(() => PlayChange(imageSecond, newFillValue, doTweening, tweenId, useUnscaledTime))
                 .SetUpdate(useUnscaledTime);
         }
     }
