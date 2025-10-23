@@ -148,6 +148,7 @@ MonoBehaviour:
       m_Right: 27
       m_Top: 23
       m_Bottom: 23
+    _changeEffect: {fileID: 11400000, guid: 3e7265f8b6abe544991acb1ba840293b, type: 2}
   _fillCircularProperties:
   - _backgroundProperties:
       _spriteAssetReference: {fileID: 11400000, guid: d2134e742ec192e4ca829e650ae19c70, type: 2}
@@ -175,6 +176,7 @@ MonoBehaviour:
       m_Right: 30
       m_Top: 30
       m_Bottom: 30
+    _changeEffect: {fileID: 11400000, guid: d9e4f12c8de1d9741bf7b10442abc61c, type: 2}
   _textProperties:
   - _fontAssetReference: {fileID: 11400000, guid: c9ae901140b3462419a9edef892dcc5c, type: 2}
     _fontSize: 90

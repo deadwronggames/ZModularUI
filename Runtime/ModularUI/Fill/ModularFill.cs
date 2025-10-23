@@ -13,8 +13,6 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] bool _isCircularFill;
         [SerializeField] Tier _componentTier;
         [SerializeField] bool _doAllowTweening;
-        [SerializeField] BaseModularFillChangeEffectSO _changeEffectSO;
-        private bool _doNonDefaultChangeEffect => (_changeEffectSO != null);
         
         [Header("Setup")]
         [SerializeField] Image _backgroundImage;
@@ -22,6 +20,8 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] Image _fillImage;
         [SerializeField] Image _borderImage;
 
+        private BaseModularFillChangeEffectSO _changeEffectSO;
+        private bool _doNonDefaultChangeEffect => (_changeEffectSO != null);
         private float _currentValue;
         
         protected override void Setup()
@@ -34,7 +34,7 @@ namespace DeadWrongGames.ZModularUI
             
             // Apply theme properties for either circular or normal fill
             ModularFillProperties properties = (_isCircularFill) ? _theme.GetFillCircularProperties(_componentTier) : _theme.GetFillProperties(_componentTier);
-            properties.ApplyTo(_backgroundImage, _changeIndicatorImage, _fillImage, _borderImage);
+            properties.ApplyTo(_backgroundImage, _changeIndicatorImage, _fillImage, _borderImage, out _changeEffectSO);
             
             // Configure fill method and origin for main and change indicator images
             _changeIndicatorImage.fillMethod = (_isCircularFill) ? Image.FillMethod.Radial360 : Image.FillMethod.Horizontal;
