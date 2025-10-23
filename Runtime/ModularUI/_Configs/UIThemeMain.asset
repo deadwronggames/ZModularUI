@@ -128,11 +128,11 @@ MonoBehaviour:
       _sprite: {fileID: 21300000, guid: cad778eb2ae2ab94396fc6c55ef4e441, type: 3}
     _changeIndicatorProperties:
       _spriteAssetReference: {fileID: 11400000, guid: d2134e742ec192e4ca829e650ae19c70, type: 2}
-      _imageColor: {fileID: 11400000, guid: 6c2d811d89014b945887bf3f512b5f38, type: 2}
+      _imageColor: {fileID: 11400000, guid: fe309f1f9749d354ab5695183353a4f6, type: 2}
       _sprite: {fileID: 21300000, guid: fdfda0b04cc182c49bfdc737a23ef69b, type: 3}
     _fillProperties:
       _spriteAssetReference: {fileID: 11400000, guid: d2134e742ec192e4ca829e650ae19c70, type: 2}
-      _imageColor: {fileID: 11400000, guid: 7ff0228985dea394fb916a210e97fbf5, type: 2}
+      _imageColor: {fileID: 11400000, guid: 6c2d811d89014b945887bf3f512b5f38, type: 2}
       _sprite: {fileID: 21300000, guid: fdfda0b04cc182c49bfdc737a23ef69b, type: 3}
     _borderProperties:
       _spriteAssetReference: {fileID: 11400000, guid: e22b37b5b57d1ab4f9aeeeeeec40268b, type: 2}

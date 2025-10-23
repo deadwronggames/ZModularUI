@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5849056, g: 0.14070842, b: 0.14070842, a: 1}
+  m_Color: {r: 0.6792453, g: 0.63759345, b: 0.63759345, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8207547, g: 0.81629664, b: 0.7471965, a: 1}
+  m_Color: {r: 0.5849056, g: 0.14070842, b: 0.14070842, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -356,6 +356,8 @@ MonoBehaviour:
   _overrideProperties: 0
   _isCircularFill: 0
   _componentTier: 0
+  _doAllowTweening: 1
+  _changeEffectSO: {fileID: 11400000, guid: d9e4f12c8de1d9741bf7b10442abc61c, type: 2}
   _backgroundImage: {fileID: 2820637337284418744}
   _changeIndicatorImage: {fileID: 6071804721747387117}
   _fillImage: {fileID: 4197668053855330863}

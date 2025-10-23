@@ -54,6 +54,7 @@ The package includes modular prefabs for:
 - Buttons
 - Text elements
 - Images
+- Fills
 - Basic layout elements
 
 More prefabs (scroll views, tabs, etc.) will be added soon.
