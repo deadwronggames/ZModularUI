@@ -1,30 +1,34 @@
+using DG.Tweening;
 using System;
 using System.Threading.Tasks;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace DeadWrongGames.ZModularUI
 {
     [Serializable]
-    public class ModularWindowProperties : BaseModularUIProperty
+    public class ModularScrollViewProperties : BaseModularUIProperty
     {
         [SerializeField] ModularImageProperties _backgroundProperties;
+        [SerializeField] ModularImageProperties _handleProperties;
         [SerializeField] UIBorderProperties _borderProperties;
-        [SerializeField] RectOffset _windowContentPadding;
+        [SerializeField] RectOffset _handlePadding;
         
         public ModularImageProperties BackgroundProperties => _backgroundProperties;
+        public ModularImageProperties HandleProperties => _handleProperties;
         public UIBorderProperties BorderProperties => _borderProperties;
-        public RectOffset WindowContentPadding => _windowContentPadding;
 
+        
         // No Addressables are used directly by this class
         protected override Task ReloadAddressablesAssets() => Task.CompletedTask;
-
-        public void ApplyTo(Image backgroundImage, Image borderImage, RectTransform contentRectTransform, float tweenTime = 0f, Ease ease = Ease.OutQuad)
+        
+        public void ApplyTo(Image backgroundImage, Image handleImage, Image borderImage, float tweenTime = 0f, Ease ease = Ease.OutQuad)
         {
             _backgroundProperties.ApplyTo(backgroundImage, tweenTime, ease);
+            _handleProperties.ApplyTo(handleImage, tweenTime, ease);
             _borderProperties.ApplyTo(borderImage, backgroundImage.rectTransform, tweenTime, ease);
-            contentRectTransform.SetPadding(_windowContentPadding);
+            
+            handleImage.rectTransform.SetPadding(_handlePadding);
         }
     }
 }

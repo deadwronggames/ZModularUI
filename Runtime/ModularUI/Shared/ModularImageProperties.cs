@@ -9,7 +9,7 @@ using UnityEngine.UI;
 namespace DeadWrongGames.ZModularUI
 {
     [Serializable]
-    public class ImageProperties : BaseModularUIProperty
+    public class ModularImageProperties : BaseModularUIProperty
     {
         [SerializeField] AssetReferenceSpriteSO _spriteAssetReference;
         [SerializeField] ModularColorSO _imageColor;

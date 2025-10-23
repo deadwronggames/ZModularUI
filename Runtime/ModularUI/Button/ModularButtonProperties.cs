@@ -13,16 +13,16 @@ namespace DeadWrongGames.ZModularUI
     {
         [SerializeField] Vector2 _buttonSize;
         [SerializeField] CommonTextProperties _text;
-        [SerializeField] ImageProperties _frontImage;
-        [SerializeField] ImageProperties _middleImage;
-        [SerializeField] ImageProperties _backImage;
+        [SerializeField] ModularImageProperties _frontImage;
+        [SerializeField] ModularImageProperties _middleImage;
+        [SerializeField] ModularImageProperties _backImage;
         [SerializeField] UIBorderProperties _border;
 
         public Vector2 ButtonSize => _buttonSize ;
         public CommonTextProperties Text => _text ;
-        public ImageProperties FrontImage => _frontImage ;
-        public ImageProperties MiddleImage => _middleImage ;
-        public ImageProperties BackImage => _backImage ;
+        public ModularImageProperties FrontImage => _frontImage ;
+        public ModularImageProperties MiddleImage => _middleImage ;
+        public ModularImageProperties BackImage => _backImage ;
         public UIBorderProperties Border => _border ;
 
         // No Addressables are used directly by this class

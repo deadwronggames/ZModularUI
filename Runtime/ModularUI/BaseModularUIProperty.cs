@@ -11,7 +11,7 @@ namespace DeadWrongGames.ZModularUI
     public abstract class BaseModularUIProperty
     {
         /// <summary>
-        /// Modular properties can be hierarchical. Nested properties (like <see cref="ImageProperties"/> inside <see cref="ModularWindowProperties"/>) are recursively loaded and applied.
+        /// Modular properties can be hierarchical. Nested properties (like <see cref="ModularImageProperties"/> inside <see cref="ModularWindowProperties"/>) are recursively loaded and applied.
         /// </summary>
         /// <param name="rootAssetUser">Instance of inheritor of this class or any other class that hold references to modular UI properties</param>
         public static async Task ReloadAddressablesAssetsRecursive(object rootAssetUser)

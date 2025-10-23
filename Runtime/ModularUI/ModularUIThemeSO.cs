@@ -17,7 +17,7 @@ namespace DeadWrongGames.ZModularUI
     /// <list type="bullet">
     /// <item>Addressable assets in property classes are automatically cached in the property instances.</item>
     /// <item>Properties that do not use Addressables can simply return Task.CompletedTask from <see cref="BaseModularUIProperty.ReloadAddressablesAssets"/>.</item>
-    /// <item>Modular properties are hierarchical. Nested properties (like <see cref="ImageProperties"/> inside <see cref="ModularWindowProperties"/>) are recursively loaded and applied.</item>
+    /// <item>Modular properties are hierarchical. Nested properties (like <see cref="ModularImageProperties"/> inside <see cref="ModularWindowProperties"/>) are recursively loaded and applied.</item>
     /// </list>
     /// </para>
     /// </summary>
@@ -34,6 +34,11 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] ModularFillProperties[] _fillCircularProperties;
         public ModularFillProperties GetFillProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _fillProperties);
         public ModularFillProperties GetFillCircularProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _fillCircularProperties);
+        
+        
+        [Header("Modular Scroll Views")]
+        [SerializeField] ModularScrollViewProperties[] _scrollViewProperties;
+        public ModularScrollViewProperties GetScrollViewProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _scrollViewProperties);
         
         
         [Header("Modular Text")]

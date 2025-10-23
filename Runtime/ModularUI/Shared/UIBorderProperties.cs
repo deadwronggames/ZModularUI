@@ -7,7 +7,7 @@ using UnityEngine.UI;
 namespace DeadWrongGames.ZModularUI
 {
     [Serializable]
-    public class UIBorderProperties : ImageProperties
+    public class UIBorderProperties : ModularImageProperties
     {
         [SerializeField] RectOffset _contentPadding;
         public RectOffset ContentPadding => _contentPadding;

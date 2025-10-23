@@ -9,16 +9,16 @@ namespace DeadWrongGames.ZModularUI
     [Serializable]
     public class ModularFillProperties : BaseModularUIProperty
     {
-        [SerializeField] ImageProperties _backgroundProperties;
-        [SerializeField] ImageProperties _changeIndicatorProperties;
-        [SerializeField] ImageProperties _fillProperties;
+        [SerializeField] ModularImageProperties _backgroundProperties;
+        [SerializeField] ModularImageProperties _changeIndicatorProperties;
+        [SerializeField] ModularImageProperties _fillProperties;
         [SerializeField] UIBorderProperties _borderProperties;
         [SerializeField] RectOffset _fillPadding;
         [SerializeField] BaseModularFillChangeEffectSO _changeEffect;
         
-        public ImageProperties BackgroundProperties => _backgroundProperties;
-        public ImageProperties ChangeIndicatorProperties => _changeIndicatorProperties;
-        public ImageProperties FillProperties => _fillProperties;
+        public ModularImageProperties BackgroundProperties => _backgroundProperties;
+        public ModularImageProperties ChangeIndicatorProperties => _changeIndicatorProperties;
+        public ModularImageProperties FillProperties => _fillProperties;
         public UIBorderProperties BorderProperties => _borderProperties;
         public BaseModularFillChangeEffectSO ChangeEffect => _changeEffect;
 
