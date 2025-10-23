@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6765783657315538605
 RectTransform:
   m_ObjectHideFlags: 0
@@ -335,10 +335,10 @@ RectTransform:
   - {fileID: 3573747749619586592}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 50}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3374562751371171561
 MonoBehaviour:
@@ -357,7 +357,6 @@ MonoBehaviour:
   _isCircularFill: 0
   _componentTier: 0
   _doAllowTweening: 1
-  _changeEffectSO: {fileID: 11400000, guid: d9e4f12c8de1d9741bf7b10442abc61c, type: 2}
   _backgroundImage: {fileID: 2820637337284418744}
   _changeIndicatorImage: {fileID: 6071804721747387117}
   _fillImage: {fileID: 4197668053855330863}
