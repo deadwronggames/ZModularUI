@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using DeadWrongGames.ZCommon;
 using DeadWrongGames.ZUtils;
@@ -5,6 +6,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 namespace DeadWrongGames.ZModularUI
 {
@@ -29,6 +31,7 @@ namespace DeadWrongGames.ZModularUI
                 }
             }
 
+            // TODO should I use the new DoSafeUiModification method here instead?
 #if UNITY_EDITOR
             // Delay to avoid "Can't call from inside Awake or Validate" warnings
             EditorApplication.delayCall += () =>
@@ -38,6 +41,26 @@ namespace DeadWrongGames.ZModularUI
                 rectTransform.offsetMin = new Vector2(padding.left, padding.bottom);
                 rectTransform.offsetMax = new Vector2(-padding.right, -padding.top);
             };
+        }
+        
+        public static void DoSafeUiModification(Action action)
+        {
+#if UNITY_EDITOR 
+            // Delay to avoid "Can't call from inside Awake or Validate" warnings
+            EditorApplication.delayCall += () =>
+
+#endif
+            {
+                if (Application.isPlaying) Canvas.willRenderCanvases += OnCanvasRender;
+                else action?.Invoke();
+            };
+            
+            return;
+            void OnCanvasRender()
+            {
+                Canvas.willRenderCanvases -= OnCanvasRender;
+                action?.Invoke();
+            }
         }
         
         /// <summary>

@@ -12,34 +12,57 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] Tier _componentTier;
 
         [Header("Setup")] 
-        [SerializeField] VerticalLayoutGroup _contentLayoutGroup;
         [SerializeField] Image _backgroundImage;
-        [SerializeField] Image _handleImage;
         [SerializeField] Image _borderImage;
+        [SerializeField] RectTransform _viewPortRectTransform;
+        [SerializeField] VerticalLayoutGroup _contentLayoutGroup;
+        [SerializeField] LayoutElement _placeholderTop;
+        [SerializeField] LayoutElement _placeholderBottom;
+        [SerializeField] Image _scrollbarBackgroundImage;
+        [SerializeField] Image _handleImage;
+        [SerializeField] Image _scrollbarBorderImage;
 
-        private int _tweenID => GetInstanceID();
-        
-        private Color _handleColorDefault;
-        private Color _handleColorHighlighted;
-        
         public float ScrollbarValue
         {
             get => _scrollbar.value;
             set => _scrollbar.value = value;
         }
-
+        
+        private int _tweenID => GetInstanceID();
+        
+        private ModularScrollViewProperties _properties;
+        RectTransform _contentRectTransform;
         private Scrollbar _scrollbar;
+        
         protected override void Setup()
         {
+            _contentRectTransform = _contentLayoutGroup.GetComponent<RectTransform>();
             _scrollbar = GetComponentInChildren<Scrollbar>(includeInactive: true);
         }
 
         protected override void Apply()
         {
-            ModularScrollViewProperties properties = _theme.GetScrollViewProperties(_componentTier) ;
-            properties.ApplyTo(_contentLayoutGroup, _scrollbar, _backgroundImage, _handleImage, _borderImage);
-            _handleColorDefault = properties.HandleColorDefault;
-            _handleColorHighlighted = properties.HandleColorHighlighted;
+            _properties = _theme.GetScrollViewProperties(_componentTier);
+            _properties.ApplyTo(
+                _backgroundImage, 
+                _borderImage,
+                _viewPortRectTransform,
+                _contentRectTransform,
+                _contentLayoutGroup, 
+                _placeholderTop,
+                _placeholderBottom,
+                _scrollbar, 
+                _scrollbarBackgroundImage, 
+                _handleImage, 
+                _scrollbarBorderImage
+            );
+        }
+
+        private void OnEnable()
+        {
+            _scrollbar.value = 1f;
+            bool isScrollbarNeeded = IsScrollbarNeeded(_contentRectTransform, _viewPortRectTransform);
+            _properties.AdjustViewPortPadding(_viewPortRectTransform, isScrollbarNeeded);
         }
         
         private void OnDestroy()
@@ -47,21 +70,26 @@ namespace DeadWrongGames.ZModularUI
             DOTween.Kill(_tweenID); // Avoid warnings
         }
 
+        public static bool IsScrollbarNeeded(RectTransform contentRectTransform, RectTransform viewPortRectTransform)
+        {
+            return (contentRectTransform.rect.height > viewPortRectTransform.rect.height);
+        }
+        
         public void OnValueChanged()
         {
             DOTween.Kill(_tweenID);
             DOTween.Sequence()
                 .SetId(_tweenID)
-                .Append(GetHandleColorTween(_handleColorHighlighted, GetTweenRemainingDurationHighlight()))
+                .Append(GetHandleColorTween(_properties.HandleColorHighlighted, GetTweenRemainingDurationHighlight()))
                 .AppendInterval(CHANGE_HIGHLIGHT_TIME_SECONDS)
-                .Append(GetHandleColorTween(_handleColorDefault, _scrollbar.colors.fadeDuration));
+                .Append(GetHandleColorTween(_properties.HandleColorDefault, _scrollbar.colors.fadeDuration));
             
             return;
             Tween GetHandleColorTween(Color endColor, float duration)
             {
                 return DOTween.To(
-                    () => _scrollbar.colors.normalColor,
-                    c => _scrollbar.SetHandleColorBlock(c, _handleColorHighlighted),
+                    getter: () => _scrollbar.colors.normalColor,
+                    setter: c => _scrollbar.SetHandleColorBlock(c, _properties.HandleColorHighlighted),
                     endColor,
                     duration
                 );
@@ -70,14 +98,12 @@ namespace DeadWrongGames.ZModularUI
             float GetTweenRemainingDurationHighlight()
             {
                 // Measure where we are between the two colors (0–1)
-                float totalDistance = Vector4.Distance(_handleColorDefault, _handleColorHighlighted);
-                float remainingDistance = Vector4.Distance(_scrollbar.colors.normalColor, _handleColorHighlighted);
+                float totalDistance = Vector4.Distance((Color)_properties.HandleColorDefault, (Color)_properties.HandleColorHighlighted);
+                float remainingDistance = Vector4.Distance(_scrollbar.colors.normalColor, (Color)_properties.HandleColorHighlighted);
                 float t = (totalDistance > 0) ? remainingDistance / totalDistance : 0f;
             
                 return _scrollbar.colors.fadeDuration * t;
             }
         }
-
-        
     }
 }

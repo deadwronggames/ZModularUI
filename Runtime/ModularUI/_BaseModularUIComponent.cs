@@ -54,7 +54,7 @@ namespace DeadWrongGames.ZModularUI
         [Button("Reconfigure all Modular UI")]
         public void ReconfigureAll()
         {
-            Configure();
+            // Configure();
             ModularUIHelpers.ReconfigureAllModularUI();
         }
 #endif
