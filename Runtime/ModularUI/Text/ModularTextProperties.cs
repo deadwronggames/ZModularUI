@@ -10,8 +10,6 @@ namespace DeadWrongGames.ZModularUI
     {
         [SerializeField] FontStyles _fontStyle;
         [SerializeField] TextAlignmentOptions _textAlignment;
-        public FontStyles FontStyle => _fontStyle;
-        public TextAlignmentOptions TextAlignment => _textAlignment;
         
         public override void ApplyTo(TMP_Text target, float tweenTime = 0f, Ease ease = Ease.OutQuad)
         {

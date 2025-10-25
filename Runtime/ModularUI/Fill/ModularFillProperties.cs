@@ -16,12 +16,7 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] RectOffset _fillPadding;
         [SerializeField] BaseModularFillChangeEffectSO _changeEffect;
         
-        public ModularImageProperties BackgroundProperties => _backgroundProperties;
-        public ModularImageProperties ChangeIndicatorProperties => _changeIndicatorProperties;
-        public ModularImageProperties FillProperties => _fillProperties;
-        public UIBorderProperties BorderProperties => _borderProperties;
         public BaseModularFillChangeEffectSO ChangeEffect => _changeEffect;
-
         
         // No Addressables are used directly by this class
         protected override Task ReloadAddressablesAssets() => Task.CompletedTask;

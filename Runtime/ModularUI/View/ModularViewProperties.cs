@@ -13,10 +13,6 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] UIBorderProperties _borderProperties;
         [SerializeField] RectOffset _contentPadding;
         
-        public ModularImageProperties BackgroundProperties => _backgroundProperties;
-        public UIBorderProperties BorderProperties => _borderProperties;
-        public RectOffset ContentPadding => _contentPadding;
-
         // No Addressables are used directly by this class
         protected override Task ReloadAddressablesAssets() => Task.CompletedTask;
 

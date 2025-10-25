@@ -17,13 +17,8 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] ModularImageProperties _middleImage;
         [SerializeField] ModularImageProperties _backImage;
         [SerializeField] UIBorderProperties _border;
-
-        public Vector2 ButtonSize => _buttonSize ;
+        
         public CommonTextProperties Text => _text ;
-        public ModularImageProperties FrontImage => _frontImage ;
-        public ModularImageProperties MiddleImage => _middleImage ;
-        public ModularImageProperties BackImage => _backImage ;
-        public UIBorderProperties Border => _border ;
 
         // No Addressables are used directly by this class
         protected override Task ReloadAddressablesAssets() => Task.CompletedTask;

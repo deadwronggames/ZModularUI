@@ -14,10 +14,7 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] AssetReferenceSpriteSO _spriteAssetReference;
         [SerializeField] ModularColorSO _imageColor;
         [HideInInspector] [SerializeField] Sprite _sprite; // Serialization is necessary so that value is carried over into build
-
-        public Sprite Sprite => _sprite;
-        public ModularColorSO ImageColor => _imageColor;
-
+        
         protected override async Task ReloadAddressablesAssets()
         {
             if (_spriteAssetReference != null)

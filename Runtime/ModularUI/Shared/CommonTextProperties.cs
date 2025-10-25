@@ -16,8 +16,6 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] ModularColorSO _textColor;
         [HideInInspector] [SerializeField] TMP_FontAsset _font; // Serialization is necessary so that value is carried over into build
         
-        public TMP_FontAsset Font => _font;
-        public int FontSize => _fontSize;
         public ModularColorSO TextColor => _textColor;
         
         protected override async Task ReloadAddressablesAssets()
