@@ -19,7 +19,7 @@ namespace DeadWrongGames.ZModularUI
         
         protected override void Apply()
         {
-            ModularViewProperties properties = _theme.GetWindowProperties(_componentTier);
+            ModularViewProperties properties = _theme.GetViewProperties(_componentTier);
             properties.ApplyTo(_backgroundImage, _borderImage, _contentRectTransform);
         }
     }

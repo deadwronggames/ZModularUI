@@ -192,8 +192,8 @@ MonoBehaviour:
         m_Top: 24
         m_Bottom: 24
     _paddingTop: 40
-    _paddingSides: 50
     _paddingBottom: 40
+    _paddingSides: 50
     _contentSpacing: 10
     _widthScrollbar: 60
     _scrollbarBackgroundProperties:
@@ -245,7 +245,7 @@ MonoBehaviour:
     _font: {fileID: 11400000, guid: e22d42403af647c42bd12c13dbb03cfb, type: 2}
     _fontStyle: 0
     _textAlignment: 264
-  _windowProperties:
+  _viewProperties:
   - _backgroundProperties:
       _spriteAssetReference: {fileID: 11400000, guid: a620e0bda4161ac459ca211199d3fa86, type: 2}
       _imageColor: {fileID: 11400000, guid: fe309f1f9749d354ab5695183353a4f6, type: 2}
@@ -259,11 +259,11 @@ MonoBehaviour:
         m_Right: 20
         m_Top: 20
         m_Bottom: 20
-    _windowContentPadding:
-      m_Left: 120
-      m_Right: 120
-      m_Top: 60
-      m_Bottom: 30
+    _contentPadding:
+      m_Left: 80
+      m_Right: 80
+      m_Top: 50
+      m_Bottom: 50
   - _backgroundProperties:
       _spriteAssetReference: {fileID: 11400000, guid: a620e0bda4161ac459ca211199d3fa86, type: 2}
       _imageColor: {fileID: 11400000, guid: 408b680964df7e64bb48f89afcda12e6, type: 2}
@@ -277,8 +277,8 @@ MonoBehaviour:
         m_Right: 20
         m_Top: 20
         m_Bottom: 20
-    _windowContentPadding:
-      m_Left: 120
-      m_Right: 120
-      m_Top: 60
-      m_Bottom: 30
+    _contentPadding:
+      m_Left: 80
+      m_Right: 80
+      m_Top: 50
+      m_Bottom: 50

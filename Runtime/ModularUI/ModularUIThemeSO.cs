@@ -1,6 +1,7 @@
 using DeadWrongGames.ZCommon;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace DeadWrongGames.ZModularUI
 {
@@ -46,9 +47,9 @@ namespace DeadWrongGames.ZModularUI
         public ModularTextProperties GetTextProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _textProperties);
         
         
-        [Header("Modular Windows")]
-        [SerializeField] ModularViewProperties[] _windowProperties;
-        public ModularViewProperties GetWindowProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _windowProperties);
+        [Header("Modular Views")]
+        [SerializeField] ModularViewProperties[] _viewProperties;
+        public ModularViewProperties GetViewProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _viewProperties);
         
         
 #if UNITY_EDITOR
