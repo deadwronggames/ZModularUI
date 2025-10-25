@@ -15,7 +15,7 @@ using DeadWrongGames.ZModularUI;
 ```
 
 ## Overview
-- Each UI element (like buttons, texts, windows) derives from a base class that links it to a configuration ScriptableObject, defining its visual behavior.
+- Each UI element (like buttons, texts, views) derives from a base class that links it to a configuration ScriptableObject, defining its visual behavior.
 - UIs can be assembled *lego-style* using modular prefabs included in the package.  
 - These prefabs are customizable. You can copy them into your project, edit or extend them, and still benefit from the modular system.
 
@@ -42,7 +42,7 @@ The base class ensures that:
 
 
 ### Themes & Configs
-- ModularUIThemeSO: The root theme asset containing properties for all tiers of windows, buttons, and text elements.
+- ModularUIThemeSO: The root theme asset containing properties for all tiers of views, buttons, and text elements.
 - BaseModularUIComponentConfigSO: A per-component configuration that references the theme and optionally defines overrides.
 - Property Classes: Each UI type (e.g. text, button) has a corresponding property set (e.g. ModularTextProperties) that defines settings like font, color, and layout.
 - All property classes support Addressable assets, which are cached automatically.
@@ -50,7 +50,7 @@ The base class ensures that:
 
 ### Prefabs
 The package includes modular prefabs for:
-- Windows
+- Views
 - Buttons
 - Text elements
 - Images

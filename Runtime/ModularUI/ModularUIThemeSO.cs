@@ -17,7 +17,7 @@ namespace DeadWrongGames.ZModularUI
     /// <list type="bullet">
     /// <item>Addressable assets in property classes are automatically cached in the property instances.</item>
     /// <item>Properties that do not use Addressables can simply return Task.CompletedTask from <see cref="BaseModularUIProperty.ReloadAddressablesAssets"/>.</item>
-    /// <item>Modular properties are hierarchical. Nested properties (like <see cref="ModularImageProperties"/> inside <see cref="ModularWindowProperties"/>) are recursively loaded and applied.</item>
+    /// <item>Modular properties are hierarchical. Nested properties (like <see cref="ModularImageProperties"/> inside <see cref="ModularViewProperties"/>) are recursively loaded and applied.</item>
     /// </list>
     /// </para>
     /// </summary>
@@ -47,8 +47,8 @@ namespace DeadWrongGames.ZModularUI
         
         
         [Header("Modular Windows")]
-        [SerializeField] ModularWindowProperties[] _windowProperties;
-        public ModularWindowProperties GetWindowProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _windowProperties);
+        [SerializeField] ModularViewProperties[] _windowProperties;
+        public ModularViewProperties GetWindowProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _windowProperties);
         
         
 #if UNITY_EDITOR

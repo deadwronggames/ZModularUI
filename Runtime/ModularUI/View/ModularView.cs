@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace DeadWrongGames.ZModularUI
 {
-    public class ModularWindow : BaseModularUIComponent<ModularWindowConfigSO>
+    public class ModularView : BaseModularUIComponent<ModularViewConfigSO>
     {
         [SerializeField] Tier _componentTier;
         
@@ -19,7 +19,7 @@ namespace DeadWrongGames.ZModularUI
         
         protected override void Apply()
         {
-            ModularWindowProperties properties = _theme.GetWindowProperties(_componentTier);
+            ModularViewProperties properties = _theme.GetWindowProperties(_componentTier);
             properties.ApplyTo(_backgroundImage, _borderImage, _contentRectTransform);
         }
     }
