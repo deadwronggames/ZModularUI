@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 namespace DeadWrongGames.ZModularUI
 {
+    /// <summary>
+    /// A modular, theme-driven ScrollView that automatically applies properties and
+    /// animates handle color changes when interacted with.
+    /// </summary>
     public class ModularScrollView : BaseModularUIComponent<ModularScrollViewConfigSO>
     {
         private const float CHANGE_HIGHLIGHT_TIME_SECONDS = 0.3f;
@@ -21,7 +25,7 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] Image _scrollbarBackgroundImage;
         [SerializeField] Image _handleImage;
         [SerializeField] Image _scrollbarBorderImage;
-
+        
         public float ScrollbarValue
         {
             get => _scrollbar.value;
@@ -36,12 +40,14 @@ namespace DeadWrongGames.ZModularUI
         
         protected override void Setup()
         {
+            // Cache some Components
             _contentRectTransform = _contentLayoutGroup.GetComponent<RectTransform>();
             _scrollbar = GetComponentInChildren<Scrollbar>(includeInactive: true);
         }
 
         protected override void Apply()
         {
+            // Apply visual and layout configuration from the theme
             _properties = _theme.GetScrollViewProperties(_componentTier);
             _properties.ApplyTo(
                 _backgroundImage, 
@@ -60,8 +66,8 @@ namespace DeadWrongGames.ZModularUI
 
         private void OnEnable()
         {
-            _scrollbar.value = 1f;
-            bool isScrollbarNeeded = IsScrollbarNeeded(_contentRectTransform, _viewPortRectTransform);
+            _scrollbar.value = 1f; // Always start at top
+            bool isScrollbarNeeded = IsScrollbarVisible(_contentRectTransform, _viewPortRectTransform);
             _properties.AdjustViewPortPadding(_viewPortRectTransform, isScrollbarNeeded);
         }
         
@@ -70,11 +76,18 @@ namespace DeadWrongGames.ZModularUI
             DOTween.Kill(_tweenID); // Avoid warnings
         }
 
-        public static bool IsScrollbarNeeded(RectTransform contentRectTransform, RectTransform viewPortRectTransform)
+        /// <summary>
+        /// Checks if content exceeds viewport height and thus the scrollbar is visible.
+        /// Scrollbar itself should be set to auto hide on the ScrollRect Component
+        /// </summary>
+        public static bool IsScrollbarVisible(RectTransform contentRectTransform, RectTransform viewPortRectTransform)
         {
             return (contentRectTransform.rect.height > viewPortRectTransform.rect.height);
         }
         
+        /// <summary>
+        /// Triggered when scrollbar value changes. Handles highlight color tweening.
+        /// </summary>
         public void OnValueChanged()
         {
             DOTween.Kill(_tweenID);
@@ -85,6 +98,8 @@ namespace DeadWrongGames.ZModularUI
                 .Append(GetHandleColorTween(_properties.HandleColorDefault, _scrollbar.colors.fadeDuration));
             
             return;
+            
+            // Tween the handle color smoothly toward the target color
             Tween GetHandleColorTween(Color endColor, float duration)
             {
                 return DOTween.To(
@@ -95,6 +110,7 @@ namespace DeadWrongGames.ZModularUI
                 );
             }
 
+            // Compute remaining highlight duration proportionally to current color distance
             float GetTweenRemainingDurationHighlight()
             {
                 // Measure where we are between the two colors (0–1)

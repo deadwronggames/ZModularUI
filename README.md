@@ -55,9 +55,10 @@ The package includes modular prefabs for:
 - Text elements
 - Images
 - Fills
+- Scrollviews
 - Basic layout elements
 
-More prefabs (scroll views, tabs, etc.) will be added soon.
+More prefabs (radio buttons, tabs, etc.) will be added soon.
 Each prefab follows the modular structure and can be easily customized or extended.
 
 
@@ -68,7 +69,7 @@ Each prefab follows the modular structure and can be easily customized or extend
 
 
 ## Planned additions:
-- More UI element prefabs and functionality (scroll views, tabs, sliders)
+- More UI element prefabs and functionality (tabs, sliders)
 - Page management with animation & transition helpers
 
 

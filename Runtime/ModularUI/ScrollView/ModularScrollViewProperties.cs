@@ -3,7 +3,6 @@ using System;
 using System.Threading.Tasks;
 using DeadWrongGames.ZUtils;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace DeadWrongGames.ZModularUI
@@ -11,6 +10,7 @@ namespace DeadWrongGames.ZModularUI
     [Serializable]
     public class ModularScrollViewProperties : BaseModularUIProperty
     {
+        // Visual and layout configuration for the scroll view
         [SerializeField] ModularImageProperties _backgroundProperties;
         [SerializeField] UIBorderProperties _borderProperties;
         [SerializeField] int _paddingTop;
@@ -21,7 +21,6 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] ModularImageProperties _scrollbarBackgroundProperties;
         [Tooltip("Usually Color should be set to white. The color in different states gets handled via color fields below")] 
         [SerializeField] ModularImageProperties _handleProperties;
-        [FormerlySerializedAs("_borderProperties")]
         [SerializeField] UIBorderProperties _scrollbarBorderProperties;
         [SerializeField] RectOffset _handlePadding;
         [SerializeField] ModularColorSO _handleColorDefault;
@@ -34,6 +33,9 @@ namespace DeadWrongGames.ZModularUI
         // No Addressables are used directly by this class
         protected override Task ReloadAddressablesAssets() => Task.CompletedTask;
         
+        /// <summary>
+        /// Applies all visual and layout settings to a scroll view and its parts.
+        /// </summary>
         public void ApplyTo(
             Image backgroundImage, 
             Image borderImage, 
@@ -49,16 +51,20 @@ namespace DeadWrongGames.ZModularUI
             float tweenTime = 0f, Ease ease = Ease.OutQuad
         )
         {
+            // Apply background and border visuals
             _backgroundProperties.ApplyTo(backgroundImage, tweenTime, ease);
             _borderProperties.ApplyTo(borderImage, backgroundImage.rectTransform, tweenTime, ease);
 
-            bool isScrollbarNeeded = ModularScrollView.IsScrollbarNeeded(contentRectTransform, viewPortRectTransform);
+            // Recalculate layout and padding based on scrollbar necessity
+            bool isScrollbarNeeded = ModularScrollView.IsScrollbarVisible(contentRectTransform, viewPortRectTransform);
             AdjustViewPortPadding(viewPortRectTransform, isScrollbarNeeded);
             
+            // Update content spacing and placeholder offsets
             contentLayoutGroup.spacing = _contentSpacing;
             placeholderTop.minHeight = _paddingTop - _borderProperties.ContentPadding.top - _contentSpacing;
             placeholderBottom.minHeight = _paddingBottom - _borderProperties.ContentPadding.bottom - _contentSpacing;
             
+            // Apply scrollbar visuals and colors
             scrollbar.SetHandleColorBlock(_handleColorDefault, _handleColorHighlighted);
             _scrollbarBackgroundProperties.ApplyTo(scrollbarBackgroundImage, tweenTime, ease);
             _handleProperties.ApplyTo(handleImage, tweenTime, ease);
@@ -67,21 +73,29 @@ namespace DeadWrongGames.ZModularUI
             AdjustScrollbarPositionAndPadding(scrollbar);
         }
         
-        public void AdjustViewPortPadding(RectTransform viewPortRectTransform, bool isScrollbarNeeded)
+        /// <summary>
+        /// Adjusts the viewport padding dynamically depending on whether the scrollbar is visible.
+        /// </summary>
+        public void AdjustViewPortPadding(RectTransform viewPortRectTransform, bool isScrollbarVisible)
         {
-            if (viewPortRectTransform == null) return; // Ignore obsolete callbacks without error
+            if (viewPortRectTransform.IsNull()) return; // Ignore obsolete callbacks without error
 
-            float viewPortPaddingRight = (isScrollbarNeeded) ? 
-                -(_paddingSides + _widthScrollbar + (_paddingSides - _borderProperties.ContentPadding.right)) : // TODO when and why do I need the minus signs in front?
+            // Right padding becomes larger when scrollbar is present
+            float viewPortPaddingRight = (isScrollbarVisible) ? 
+                -(_paddingSides + _widthScrollbar + (_paddingSides - _borderProperties.ContentPadding.right)) :
                 -_paddingSides;
+            
             ModularUIHelpers.DoSafeUiModification(() =>
             {
-                viewPortRectTransform.offsetMin = new Vector2(_paddingSides, _borderProperties.ContentPadding.bottom); // left and bottom
-                viewPortRectTransform.offsetMax = new Vector2(0, -_borderProperties.ContentPadding.top); // right (does not matter) and top TODO why do I need the minus sign?
-                viewPortRectTransform.offsetMax = viewPortRectTransform.offsetMax.With(x: viewPortPaddingRight); // right
+                // offsetMin = left + bottom, offsetMax = right + top (negative = inward)
+                viewPortRectTransform.offsetMin = new Vector2(_paddingSides, _borderProperties.ContentPadding.bottom);
+                viewPortRectTransform.offsetMax = new Vector2(viewPortPaddingRight, -_borderProperties.ContentPadding.top);
             });
         }
 
+        /// <summary>
+        /// Positions the scrollbar along the right edge and applies top/bottom padding.
+        /// </summary>
         // ReSharper disable once SuggestBaseTypeForParameter
         private void AdjustScrollbarPositionAndPadding(Scrollbar scrollbar)
         {
