@@ -6,7 +6,6 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Object = UnityEngine.Object;
 
 namespace DeadWrongGames.ZModularUI
 {
@@ -83,7 +82,7 @@ namespace DeadWrongGames.ZModularUI
         {
 #if UNITY_EDITOR
             // Configure all modular UI components
-            IModularUIComponent[] modularUIComponents = Object.FindObjectsByType(type: typeof(MonoBehaviour), sortMode: FindObjectsSortMode.None).OfType<IModularUIComponent>().ToArray();
+            IModularUIComponent[] modularUIComponents = UnityEngine.Object.FindObjectsByType(type: typeof(MonoBehaviour), sortMode: FindObjectsSortMode.None).OfType<IModularUIComponent>().ToArray();
             foreach (IModularUIComponent modularUIComponent in modularUIComponents)
                 modularUIComponent.Configure();
 

@@ -25,9 +25,11 @@ namespace DeadWrongGames.ZModularUI
     [CreateAssetMenu(menuName = "Scriptable Objects/ModularUI/UITheme", fileName = "UITheme", order = 0)]
     public class ModularUIThemeSO : ScriptableObject
     {
-        [Header("Modular Buttons")]
+        [Header("Modular Buttons and Toggles")]
         [SerializeField] ModularButtonProperties[] _buttonProperties;
+        [SerializeField] ModularButtonProperties[] _toggleProperties;
         public ModularButtonProperties GetButtonProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _buttonProperties);
+        public ModularButtonProperties GetToggleProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _toggleProperties);
         
         
         [Header("Modular Fills")]

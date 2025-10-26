@@ -1,6 +1,5 @@
 using DeadWrongGames.ZCommon;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +7,8 @@ namespace DeadWrongGames.ZModularUI
 {
     public class ModularButton : BaseModularUIComponent<ModularButtonConfigSO>
     {
+        [Tooltip("Toggles are basically just a special form of ModulaButtons. If checked, the theme will provide different ModularButtonProperties.")]
+        [SerializeField] bool _isToggle;
         [SerializeField] Tier _componentTier;
         
         [Header("Setup")]
@@ -35,11 +36,11 @@ namespace DeadWrongGames.ZModularUI
         
         protected override void Apply()
         {
-            _defaultProperties = _theme.GetButtonProperties(_componentTier);
+            _defaultProperties = (_isToggle) ? _theme.GetToggleProperties(_componentTier) : _theme.GetButtonProperties(_componentTier);
             _defaultProperties.ApplyTo(_buttonRectTransform, _text, _frontImage, _middleImage, _backImage, _borderImage, _visualsRectTransform);
         }
         
-        public void DoFeedback(ButtonInteractionFeedbackSO feedback, bool doOneshots) => feedback.DoFeedback(_theme.GetButtonProperties(_componentTier), doOneshots, _text);
+        public void DoFeedback(ButtonInteractionFeedbackSO feedback, bool doOneshots) => feedback.DoFeedback(_theme.GetButtonProperties(_componentTier), doOneshots, _text, _frontImage, _middleImage, _backImage);
         
         public void EndFeedback()
         {

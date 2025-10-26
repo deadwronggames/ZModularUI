@@ -4,6 +4,7 @@ using DeadWrongGames.ZUtils;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace DeadWrongGames.ZModularUI
 {
@@ -13,11 +14,23 @@ namespace DeadWrongGames.ZModularUI
         public const float TWEEN_TIME = 0.2f;
         public const Ease TWEEN_EASE = Ease.OutQuad;
         
+        // Audio
+        [Tooltip("Define an audio clip to be played.")]
         [SerializeField] AudioClip _audio;
+        
+        // Text colors
+        [Tooltip("Define which text color gets changed to what other color.")]
         [SerializeField] ColorPair[] _textColorMap = {};
+        [Tooltip("Feedback color to be used when no transition is defined in the map. If this field is also not assigned, don't change text color.")]
         [SerializeField] ModularColorSO _textColorFallback;
+        [Serializable] private struct ColorPair { public ModularColorSO Key; public ModularColorSO Value; }
 
-        public void DoFeedback(ModularButtonProperties defaultProperties, bool doOneshots, TMP_Text text)
+        // Sprites
+        [Tooltip("Define sprite changes. Fields left empty correspond to no change.")] 
+        [SerializeField] SpriteSet _alternativeSpriteSet;
+        [Serializable] private struct SpriteSet { public Sprite Front, Middle, Back; }
+
+        public void DoFeedback(ModularButtonProperties defaultProperties, bool doOneshots, TMP_Text text, Image frontImage, Image middleImage, Image backImage)
         {
             if (doOneshots)
             {
@@ -27,9 +40,13 @@ namespace DeadWrongGames.ZModularUI
             if (TryGetNewColor(defaultProperties.Text.TextColor, _textColorMap, _textColorFallback, out ModularColorSO newTextColor))
             {
                 DOTween.Kill(text);
-                text.DOColor(newTextColor, TWEEN_TIME).SetEase(TWEEN_EASE);
+                text.DOColor(newTextColor, TWEEN_TIME).SetId(text).SetEase(TWEEN_EASE);
             }
-            
+
+            if (_alternativeSpriteSet.Front != null)  frontImage.sprite  = _alternativeSpriteSet.Front;
+            if (_alternativeSpriteSet.Middle != null) middleImage.sprite = _alternativeSpriteSet.Middle;
+            if (_alternativeSpriteSet.Back != null)   backImage.sprite   = _alternativeSpriteSet.Back;
+
             // Can add more as needed
         }
 
@@ -50,11 +67,5 @@ namespace DeadWrongGames.ZModularUI
             return (newColor != null);
         }
 
-        [Serializable]
-        private struct ColorPair
-        {
-            public ModularColorSO Key;
-            public ModularColorSO Value;
-        }
     }
 }

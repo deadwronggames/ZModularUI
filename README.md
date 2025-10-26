@@ -56,6 +56,7 @@ The package includes modular prefabs for:
 - Images
 - Fills
 - Scrollviews
+- Toggles
 - Basic layout elements
 
 More prefabs (radio buttons, tabs, etc.) will be added soon.
