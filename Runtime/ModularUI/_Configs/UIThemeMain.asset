@@ -19,14 +19,6 @@ MonoBehaviour:
       _fontSize: 100
       _textColor: {fileID: 11400000, guid: 6c2d811d89014b945887bf3f512b5f38, type: 2}
       _font: {fileID: 11400000, guid: 846a1721d97010948a2c929393faf5d3, type: 2}
-    _frontImage:
-      _spriteAssetReference: {fileID: 0}
-      _imageColor: {fileID: 0}
-      _sprite: {fileID: 0}
-    _middleImage:
-      _spriteAssetReference: {fileID: 0}
-      _imageColor: {fileID: 0}
-      _sprite: {fileID: 0}
     _backImage:
       _spriteAssetReference: {fileID: 11400000, guid: a620e0bda4161ac459ca211199d3fa86, type: 2}
       _imageColor: {fileID: 11400000, guid: 408b680964df7e64bb48f89afcda12e6, type: 2}
@@ -46,41 +38,6 @@ MonoBehaviour:
       _fontSize: 60
       _textColor: {fileID: 11400000, guid: 7ff0228985dea394fb916a210e97fbf5, type: 2}
       _font: {fileID: 11400000, guid: 846a1721d97010948a2c929393faf5d3, type: 2}
-    _frontImage:
-      _spriteAssetReference: {fileID: 0}
-      _imageColor: {fileID: 0}
-      _sprite: {fileID: 0}
-    _middleImage:
-      _spriteAssetReference: {fileID: 0}
-      _imageColor: {fileID: 0}
-      _sprite: {fileID: 0}
-    _backImage:
-      _spriteAssetReference: {fileID: 11400000, guid: a620e0bda4161ac459ca211199d3fa86, type: 2}
-      _imageColor: {fileID: 11400000, guid: bf9cefe0d9bc473459b21ed90c6a1aad, type: 2}
-      _sprite: {fileID: 21300000, guid: cad778eb2ae2ab94396fc6c55ef4e441, type: 3}
-    _border:
-      _spriteAssetReference: {fileID: 11400000, guid: e22b37b5b57d1ab4f9aeeeeeec40268b, type: 2}
-      _imageColor: {fileID: 11400000, guid: 808986c624850bd429e5818df7d6fa65, type: 2}
-      _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
-      _contentPadding:
-        m_Left: 20
-        m_Right: 20
-        m_Top: 20
-        m_Bottom: 20
-  - _buttonSize: {x: 400, y: 150}
-    _text:
-      _fontAssetReference: {fileID: 0}
-      _fontSize: 0
-      _textColor: {fileID: 0}
-      _font: {fileID: 0}
-    _frontImage:
-      _spriteAssetReference: {fileID: 11400000, guid: e22b37b5b57d1ab4f9aeeeeeec40268b, type: 2}
-      _imageColor: {fileID: 11400000, guid: 408b680964df7e64bb48f89afcda12e6, type: 2}
-      _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
-    _middleImage:
-      _spriteAssetReference: {fileID: 0}
-      _imageColor: {fileID: 0}
-      _sprite: {fileID: 0}
     _backImage:
       _spriteAssetReference: {fileID: 11400000, guid: a620e0bda4161ac459ca211199d3fa86, type: 2}
       _imageColor: {fileID: 11400000, guid: bf9cefe0d9bc473459b21ed90c6a1aad, type: 2}
@@ -100,14 +57,6 @@ MonoBehaviour:
       _fontSize: 50
       _textColor: {fileID: 11400000, guid: bf9cefe0d9bc473459b21ed90c6a1aad, type: 2}
       _font: {fileID: 11400000, guid: 846a1721d97010948a2c929393faf5d3, type: 2}
-    _frontImage:
-      _spriteAssetReference: {fileID: 0}
-      _imageColor: {fileID: 0}
-      _sprite: {fileID: 0}
-    _middleImage:
-      _spriteAssetReference: {fileID: 0}
-      _imageColor: {fileID: 0}
-      _sprite: {fileID: 0}
     _backImage:
       _spriteAssetReference: {fileID: 0}
       _imageColor: {fileID: 0}
@@ -128,14 +77,6 @@ MonoBehaviour:
       _fontSize: 0
       _textColor: {fileID: 0}
       _font: {fileID: 0}
-    _frontImage:
-      _spriteAssetReference: {fileID: 11400000, guid: e22b37b5b57d1ab4f9aeeeeeec40268b, type: 2}
-      _imageColor: {fileID: 11400000, guid: 408b680964df7e64bb48f89afcda12e6, type: 2}
-      _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
-    _middleImage:
-      _spriteAssetReference: {fileID: 0}
-      _imageColor: {fileID: 0}
-      _sprite: {fileID: 0}
     _backImage:
       _spriteAssetReference: {fileID: 11400000, guid: a620e0bda4161ac459ca211199d3fa86, type: 2}
       _imageColor: {fileID: 11400000, guid: bf9cefe0d9bc473459b21ed90c6a1aad, type: 2}

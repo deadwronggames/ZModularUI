@@ -43,9 +43,9 @@ namespace DeadWrongGames.ZModularUI
                 text.DOColor(newTextColor, TWEEN_TIME).SetId(text).SetEase(TWEEN_EASE);
             }
 
-            if (_alternativeSpriteSet.Front != null)  frontImage.sprite  = _alternativeSpriteSet.Front;
-            if (_alternativeSpriteSet.Middle != null) middleImage.sprite = _alternativeSpriteSet.Middle;
-            if (_alternativeSpriteSet.Back != null)   backImage.sprite   = _alternativeSpriteSet.Back;
+            if (_alternativeSpriteSet.Front != null) frontImage.SetSpriteAndToggleEnabled(_alternativeSpriteSet.Front);
+            if (_alternativeSpriteSet.Middle != null) middleImage.SetSpriteAndToggleEnabled(_alternativeSpriteSet.Middle);
+            if (_alternativeSpriteSet.Back != null) backImage.SetSpriteAndToggleEnabled(_alternativeSpriteSet.Back);
 
             // Can add more as needed
         }

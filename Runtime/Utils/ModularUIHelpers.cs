@@ -62,9 +62,19 @@ namespace DeadWrongGames.ZModularUI
             return;
             void OnCanvasRender()
             {
-                Canvas.willRenderCanvases -= OnCanvasRender;
-                action?.Invoke();
+                try { action?.Invoke(); }
+                finally { Canvas.willRenderCanvases -= OnCanvasRender; }
             }
+        }
+
+        /// <summary>
+        /// Sets the image sprite and automatically enables or disables the Image component
+        /// based on whether the sprite is null.
+        /// </summary>
+        public static void SetSpriteAndToggleEnabled(this Image image, Sprite newSprite)
+        {
+            image.sprite = newSprite;
+            image.enabled = newSprite != null;
         }
         
         /// <summary>

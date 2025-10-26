@@ -16,6 +16,6 @@ MonoBehaviour:
   _textColorMap: []
   _textColorFallback: {fileID: 11400000, guid: 6c2d811d89014b945887bf3f512b5f38, type: 2}
   _alternativeSpriteSet:
-    Front: {fileID: 0}
+    Front: {fileID: 21300000, guid: fdfda0b04cc182c49bfdc737a23ef69b, type: 3}
     Middle: {fileID: 0}
-    Back: {fileID: 21300000, guid: fdfda0b04cc182c49bfdc737a23ef69b, type: 3}
+    Back: {fileID: 0}
