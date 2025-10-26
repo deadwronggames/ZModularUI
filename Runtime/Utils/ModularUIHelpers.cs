@@ -42,7 +42,12 @@ namespace DeadWrongGames.ZModularUI
             };
         }
         
-        public static void DoSafeUiModification(Action action)
+        public static void DoSafeUiModification(this RectTransform rectTransform, Action action)
+        {
+            if (rectTransform.IsNull()) return;
+            DoSafeUiModification(action);
+        }
+        private static void DoSafeUiModification(Action action)
         {
 #if UNITY_EDITOR 
             // Delay to avoid "Can't call from inside Awake or Validate" warnings

@@ -78,14 +78,12 @@ namespace DeadWrongGames.ZModularUI
         /// </summary>
         public void AdjustViewPortPadding(RectTransform viewPortRectTransform, bool isScrollbarVisible)
         {
-            if (viewPortRectTransform.IsNull()) return; // Ignore obsolete callbacks without error
-
             // Right padding becomes larger when scrollbar is present
             float viewPortPaddingRight = (isScrollbarVisible) ? 
                 -(_paddingSides + _widthScrollbar + (_paddingSides - _borderProperties.ContentPadding.right)) :
                 -_paddingSides;
             
-            ModularUIHelpers.DoSafeUiModification(() =>
+            viewPortRectTransform.DoSafeUiModification(() =>
             {
                 // offsetMin = left + bottom, offsetMax = right + top (negative = inward)
                 viewPortRectTransform.offsetMin = new Vector2(_paddingSides, _borderProperties.ContentPadding.bottom);
@@ -100,7 +98,7 @@ namespace DeadWrongGames.ZModularUI
         private void AdjustScrollbarPositionAndPadding(Scrollbar scrollbar)
         {
             RectTransform rectTransform = scrollbar.GetComponent<RectTransform>();
-            ModularUIHelpers.DoSafeUiModification(() =>
+            rectTransform.DoSafeUiModification(() =>
             {
                 rectTransform.offsetMax = new Vector2(-_paddingSides, -_paddingTop);
                 rectTransform.offsetMin = new Vector2(rectTransform.offsetMax.x - _widthScrollbar, _paddingBottom);
