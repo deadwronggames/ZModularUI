@@ -32,17 +32,20 @@ namespace DeadWrongGames.ZModularUI
 
         public void DoFeedback(ModularButtonProperties defaultProperties, bool doOneshots, TMP_Text text, Image frontImage, Image middleImage, Image backImage)
         {
+            // Audio
             if (doOneshots)
             {
                 if (_audio != null) "TODO playing audio clip not implemented yet".Log(level: ZMethodsDebug.LogLevel.Warning);
             }
 
+            // Text colors
             if (TryGetNewColor(defaultProperties.Text.TextColor, _textColorMap, _textColorFallback, out ModularColorSO newTextColor))
             {
                 DOTween.Kill(text);
                 text.DOColor(newTextColor, TWEEN_TIME).SetId(text).SetEase(TWEEN_EASE);
             }
 
+            // Sprite swaps
             if (_alternativeSpriteSet.Front != null) frontImage.SetSpriteAndToggleEnabled(_alternativeSpriteSet.Front);
             if (_alternativeSpriteSet.Middle != null) middleImage.SetSpriteAndToggleEnabled(_alternativeSpriteSet.Middle);
             if (_alternativeSpriteSet.Back != null) backImage.SetSpriteAndToggleEnabled(_alternativeSpriteSet.Back);
