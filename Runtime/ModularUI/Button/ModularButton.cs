@@ -22,13 +22,10 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] Image _backImage;
         [SerializeField] Image _borderImage;
 
-        private RectTransform _buttonRectTransform;
         private ModularButtonProperties _defaultProperties;
         
         protected override void Setup()
         {
-            _buttonRectTransform = GetComponent<RectTransform>();
-
             // Making sure the visual elements have the correct properties
             _text.fontStyle = FontStyles.Bold | FontStyles.UpperCase;
             _text.alignment = TextAlignmentOptions.Center;
@@ -40,7 +37,7 @@ namespace DeadWrongGames.ZModularUI
         protected override void Apply()
         {
             _defaultProperties = (_isToggle) ? _theme.GetToggleProperties(_componentTier) : _theme.GetButtonProperties(_componentTier);
-            _defaultProperties.ApplyTo(_buttonRectTransform, _text, _backImage, _borderImage, _visualsRectTransform);
+            _defaultProperties.ApplyTo(_text, _backImage, _borderImage, _visualsRectTransform);
             ApplyContent();
         }
         
@@ -51,7 +48,7 @@ namespace DeadWrongGames.ZModularUI
         
         public void EndFeedback()
         {
-            _defaultProperties.ApplyTo(_buttonRectTransform, _text, _backImage, _borderImage, _visualsRectTransform, ButtonInteractionFeedbackSO.TWEEN_TIME, ButtonInteractionFeedbackSO.TWEEN_EASE);
+            _defaultProperties.ApplyTo(_text, _backImage, _borderImage, _visualsRectTransform, ButtonInteractionFeedbackSO.TWEEN_TIME, ButtonInteractionFeedbackSO.TWEEN_EASE);
             ApplyContent();
         }
 
