@@ -194,7 +194,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1194468445533179571}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: BUTTON
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 846a1721d97010948a2c929393faf5d3, type: 2}
   m_sharedMaterial: {fileID: -3747550759724706533, guid: 846a1721d97010948a2c929393faf5d3, type: 2}
@@ -416,7 +416,7 @@ MonoBehaviour:
   _overrideProperties: 0
   _isToggle: 0
   _componentTier: 1
-  _textString: 
+  _textString: BUTTON
   _frontSprite: {fileID: 0}
   _middleSprite: {fileID: 0}
   _visualsRectTransform: {fileID: 303656936209414714}

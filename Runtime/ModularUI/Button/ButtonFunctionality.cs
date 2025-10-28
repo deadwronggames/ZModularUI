@@ -1,3 +1,4 @@
+using System;
 using DeadWrongGames.ZServices.EventChannel;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -26,14 +27,15 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] Broadcaster[] _onDeselectResponses;
         
         public bool IsInteractable { get => _isInteractable; set => _isInteractable = value; }
-
+        public event Action<ButtonFunctionality> OnSelectEvent;
+        
         private ModularButton _modularButton;
         
         // TODO could / should refactor into state machine
         private bool _isHovered;
         private bool _isPressed;
         private bool _isSelected;
-        private bool _isSelectedFixed; // from outside e.g. when this button is used to select tabs and the tab is selected by other means e.g. via keyboard
+        private bool _isSelectedFixed; // from outside e.g. when this button is used to select tabs and the tab is selected by other means e.g. via keyboard. TODO don't think I need it anymore but see after I have implemented tabs and keyboard navigation
 
         private void Awake()
         {
@@ -69,7 +71,7 @@ namespace DeadWrongGames.ZModularUI
         public void OnPointerClick(PointerEventData eventData)
         {
             if (!_isInteractable) return;
-
+            
             _isPressed = false;
             if (_feedbackClick != null) _modularButton.DoFeedback(_feedbackClick, doOneshots: true);
             if (_isSelectable && !_isSelectedFixed)
@@ -86,11 +88,12 @@ namespace DeadWrongGames.ZModularUI
             foreach (Broadcaster response in _onClickResponses)
                 response.Broadcast();  
         }
-
+        
         public void Select(bool doFixedSelect = false)
         {
             if (!_isSelectable) return;
 
+            OnSelectEvent?.Invoke(this);
             _isSelected = true;
             if (doFixedSelect) _isSelectedFixed = true;
             if ((!_isPressed || _isSelectedFixed) && _feedbackSelect != null) _modularButton.DoFeedback(_feedbackSelect, doOneshots: true);

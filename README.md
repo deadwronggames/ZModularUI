@@ -48,6 +48,12 @@ The base class ensures that:
 - All property classes support Addressable assets, which are cached automatically.
 
 
+### Configuration Lifecycle
+- The component calls `Setup()` to link internal references.
+- Then `Apply()` applies theme data from the referenced config.
+- Reconfiguration can be triggered manually or automatically after recompilation.
+
+
 ### Prefabs
 The package includes modular prefabs for:
 - Views
@@ -56,21 +62,20 @@ The package includes modular prefabs for:
 - Images
 - Fills
 - Scrollviews
+- Sliders
 - Toggles
 - Basic layout elements
 
-More prefabs (radio buttons, tabs, etc.) will be added soon.
+More prefabs (tab views, dropdowns, etc.) will be added soon.
 Each prefab follows the modular structure and can be easily customized or extended.
 
 
-### Configuration Lifecycle
-- The component calls `Setup()` to link internal references.
-- Then `Apply()` applies theme data from the referenced config.
-- Reconfiguration can be triggered manually or automatically after recompilation.
+### Additional Functionality
+- Radio buttons
 
 
 ## Planned additions:
-- More UI element prefabs and functionality (tabs, sliders, radio buttons, dropdowns, input fields, toasts)
+- More UI element prefabs and functionality (tabs, dropdowns, input fields, toasts)
 - Tooltip system
 - Page management with animation & transition helpers, navigation system
 - Localization support

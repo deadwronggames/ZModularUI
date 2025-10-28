@@ -44,7 +44,10 @@ namespace DeadWrongGames.ZModularUI
             ApplyContent();
         }
         
-        public void DoFeedback(ButtonInteractionFeedbackSO feedback, bool doOneshots) => feedback.DoFeedback(_theme.GetButtonProperties(_componentTier), doOneshots, _text, _frontImage, _middleImage, _backImage);
+        public void DoFeedback(ButtonInteractionFeedbackSO feedback, bool doOneshots)
+        {
+            feedback.DoFeedback(_theme.GetButtonProperties(_componentTier), doOneshots, _text, _frontImage, _middleImage, _backImage);
+        }
         
         public void EndFeedback()
         {
