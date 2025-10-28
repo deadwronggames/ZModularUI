@@ -110,13 +110,13 @@ MonoBehaviour:
       _contentPadding:
         m_Left: 24
         m_Right: 24
-        m_Top: 20
-        m_Bottom: 20
+        m_Top: 24
+        m_Bottom: 24
     _fillPadding:
       m_Left: 27
       m_Right: 27
-      m_Top: 23
-      m_Bottom: 23
+      m_Top: 27
+      m_Bottom: 27
     _changeEffect: {fileID: 11400000, guid: 3e7265f8b6abe544991acb1ba840293b, type: 2}
   _fillCircularProperties:
   - _backgroundProperties:
@@ -189,6 +189,33 @@ MonoBehaviour:
       m_Bottom: 26
     _handleColorDefault: {fileID: 11400000, guid: 808986c624850bd429e5818df7d6fa65, type: 2}
     _handleColorHighlighted: {fileID: 11400000, guid: 6c2d811d89014b945887bf3f512b5f38, type: 2}
+  _sliderProperties:
+  - _backgroundProperties:
+      _spriteAssetReference: {fileID: 11400000, guid: a620e0bda4161ac459ca211199d3fa86, type: 2}
+      _imageColor: {fileID: 11400000, guid: bf9cefe0d9bc473459b21ed90c6a1aad, type: 2}
+      _sprite: {fileID: 21300000, guid: cad778eb2ae2ab94396fc6c55ef4e441, type: 3}
+    _fillProperties:
+      _spriteAssetReference: {fileID: 11400000, guid: d2134e742ec192e4ca829e650ae19c70, type: 2}
+      _imageColor: {fileID: 11400000, guid: 6c2d811d89014b945887bf3f512b5f38, type: 2}
+      _sprite: {fileID: 21300000, guid: fdfda0b04cc182c49bfdc737a23ef69b, type: 3}
+    _fillPadding:
+      m_Left: 27
+      m_Right: 27
+      m_Top: 27
+      m_Bottom: 27
+    _borderProperties:
+      _spriteAssetReference: {fileID: 11400000, guid: e22b37b5b57d1ab4f9aeeeeeec40268b, type: 2}
+      _imageColor: {fileID: 11400000, guid: 808986c624850bd429e5818df7d6fa65, type: 2}
+      _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
+      _contentPadding:
+        m_Left: 24
+        m_Right: 24
+        m_Top: 24
+        m_Bottom: 24
+    _handleProperties:
+      _spriteAssetReference: {fileID: 11400000, guid: e22b37b5b57d1ab4f9aeeeeeec40268b, type: 2}
+      _imageColor: {fileID: 11400000, guid: 408b680964df7e64bb48f89afcda12e6, type: 2}
+      _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
   _textProperties:
   - _fontAssetReference: {fileID: 11400000, guid: c9ae901140b3462419a9edef892dcc5c, type: 2}
     _fontSize: 90

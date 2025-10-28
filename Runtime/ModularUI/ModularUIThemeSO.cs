@@ -44,6 +44,11 @@ namespace DeadWrongGames.ZModularUI
         public ModularScrollViewProperties GetScrollViewProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _scrollViewProperties);
         
         
+        [Header("Modular Sliders")]
+        [SerializeField] ModularSliderProperties[] _sliderProperties;
+        public ModularSliderProperties GetSliderProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _sliderProperties);
+        
+        
         [Header("Modular Text")]
         [SerializeField] ModularTextProperties[] _textProperties;
         public ModularTextProperties GetTextProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _textProperties);

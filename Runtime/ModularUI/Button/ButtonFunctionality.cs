@@ -4,17 +4,26 @@ using UnityEngine.EventSystems;
     
 namespace DeadWrongGames.ZModularUI
 {
+    /// <summary>
+    /// Defines visual and audio feedback for button interactions.
+    /// Instances of this ScriptableObject can be assigned to the feedback fields of the 
+    /// <see cref="ButtonFunctionality"/> class to control how buttons respond to various 
+    /// user interactions such as hover or press.
+    /// </summary>
+
     [RequireComponent(typeof(ModularButton))]
     public class ButtonFunctionality : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerClickHandler
     {
-        [SerializeField] Broadcaster[] _onClickResponses;
-        [SerializeField] Broadcaster[] _onDeselectResponses;
         [SerializeField] bool _isInteractable = true;
         [SerializeField] bool _isSelectable;
         [SerializeField] ButtonInteractionFeedbackSO _feedbackHover;
         [SerializeField] ButtonInteractionFeedbackSO _feedbackPress;
         [SerializeField] ButtonInteractionFeedbackSO _feedbackClick; // must only be non-persistent oneshot effects
         [SerializeField] ButtonInteractionFeedbackSO _feedbackSelect;
+        
+        [Header("Button Responses")]
+        [SerializeField] Broadcaster[] _onClickResponses;
+        [SerializeField] Broadcaster[] _onDeselectResponses;
         
         public bool IsInteractable { get => _isInteractable; set => _isInteractable = value; }
 

@@ -70,8 +70,10 @@ Each prefab follows the modular structure and can be easily customized or extend
 
 
 ## Planned additions:
-- More UI element prefabs and functionality (tabs, sliders)
-- Page management with animation & transition helpers
+- More UI element prefabs and functionality (tabs, sliders, radio buttons, dropdowns, input fields, toasts)
+- Tooltip system
+- Page management with animation & transition helpers, navigation system
+- Localization support
 
 
 ## Notes
