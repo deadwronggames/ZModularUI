@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 namespace DeadWrongGames.ZModularUI
 {
+    /// <summary>
+    /// Class controlling the visuals of themed buttons.
+    /// Can also represent toggles if <see cref="_isToggle"/> is set to true.
+    /// </summary>
     public class ModularButton : BaseModularUIComponent<ModularButtonConfigSO>
     {
         [Tooltip("Toggles are basically just a special form of ModulaButtons. If checked, the theme will provide different ModularButtonProperties.")]
@@ -36,22 +40,31 @@ namespace DeadWrongGames.ZModularUI
         
         protected override void Apply()
         {
+            // Load properties based on tier and toggle mode, then apply theme visuals and text / sprite content
             _defaultProperties = (_isToggle) ? _theme.GetToggleProperties(_componentTier) : _theme.GetButtonProperties(_componentTier);
             _defaultProperties.ApplyTo(_text, _backImage, _borderImage, _visualsRectTransform);
             ApplyContent();
         }
         
+        /// <summary>
+        /// Plays feedback animation/effects defined in <see cref="ButtonInteractionFeedbackSO"/>.
+        /// </summary>
         public void DoFeedback(ButtonInteractionFeedbackSO feedback, bool doOneshots)
         {
+            EnsureConfigured();
             feedback.DoFeedback(_theme.GetButtonProperties(_componentTier), doOneshots, _text, _frontImage, _middleImage, _backImage);
         }
         
+        /// <summary>
+        /// Resets visuals back to their default state.
+        /// </summary>
         public void EndFeedback()
         {
             _defaultProperties.ApplyTo(_text, _backImage, _borderImage, _visualsRectTransform, ButtonInteractionFeedbackSO.TWEEN_TIME, ButtonInteractionFeedbackSO.TWEEN_EASE);
             ApplyContent();
         }
 
+        // Sets text and sprite button content.
         private void ApplyContent()
         {
             _text.text = _textString;

@@ -437,14 +437,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8fa0039bf9458848bc179dd8ec58270, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _onClickResponses
+      Entry: 7
+      Data: 0|DeadWrongGames.ZCommon.IInvokable[], DeadWrongGames.ZCommon
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _onDeselectResponses
+      Entry: 7
+      Data: 1|DeadWrongGames.ZCommon.IInvokable[], DeadWrongGames.ZCommon
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   _isInteractable: 1
   _isSelectable: 1
   _feedbackHover: {fileID: 11400000, guid: 52c2afc4069346749902cb046524d3d2, type: 2}
   _feedbackPress: {fileID: 11400000, guid: 6513b4474d2982c44b083c33a80689ad, type: 2}
   _feedbackClick: {fileID: 0}
   _feedbackSelect: {fileID: 11400000, guid: 93c01524da5344a4f9331dd9be1bd6ca, type: 2}
-  _onClickResponses: []
-  _onDeselectResponses: []
 --- !u!1 &3248652164904060379
 GameObject:
   m_ObjectHideFlags: 0

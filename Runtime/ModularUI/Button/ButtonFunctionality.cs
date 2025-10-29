@@ -1,19 +1,22 @@
 using System;
-using DeadWrongGames.ZServices.EventChannel;
+using DeadWrongGames.ZCommon;
+using DeadWrongGames.ZUtils;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.EventSystems;
     
 namespace DeadWrongGames.ZModularUI
 {
     /// <summary>
-    /// Defines visual and audio feedback for button interactions.
-    /// Instances of this ScriptableObject can be assigned to the feedback fields of the 
-    /// <see cref="ButtonFunctionality"/> class to control how buttons respond to various 
-    /// user interactions such as hover or press.
+    /// Triggers click, select and deselect responses. Keeps track of button selection state. 
+    /// Also defines visual and audio feedback for button interactions.
+    /// ScriptableObject feedback instances can be assigned to the feedback fields of the 
+    /// this class to control how the button responds to various  user interactions such as hover or press.
+    /// Also supports special button behaviour (radio/tab) via <see cref="OnSelectEvent"/>.
     /// </summary>
 
     [RequireComponent(typeof(ModularButton))]
-    public class ButtonFunctionality : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerClickHandler
+    public class ButtonFunctionality : SerializedMonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerClickHandler
     {
         [SerializeField] bool _isInteractable = true;
         [SerializeField] bool _isSelectable;
@@ -23,25 +26,28 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] ButtonInteractionFeedbackSO _feedbackSelect;
         
         [Header("Button Responses")]
-        [SerializeField] Broadcaster[] _onClickResponses;
-        [SerializeField] Broadcaster[] _onDeselectResponses;
+        [SerializeField] IInvokable[] _onClickResponses = {};
+        [SerializeField] IInvokable[] _onDeselectResponses = {};
         
         public bool IsInteractable { get => _isInteractable; set => _isInteractable = value; }
-        public event Action<ButtonFunctionality> OnSelectEvent;
         
-        private ModularButton _modularButton;
+        /// <summary>
+        /// Fired when this button gets selected.
+        /// Used by controllers like <see cref="RadioButtonController"/>.
+        /// </summary>
+        public event Action<ButtonFunctionality> OnSelectEvent;
+
+        private ModularButton _modularButton => ZMethods.LazyInitialization(ref _modularButtonBacking, GetComponent<ModularButton>);
+        private ModularButton _modularButtonBacking;
         
         // TODO could / should refactor into state machine
         private bool _isHovered;
         private bool _isPressed;
         private bool _isSelected;
-        private bool _isSelectedFixed; // from outside e.g. when this button is used to select tabs and the tab is selected by other means e.g. via keyboard. TODO don't think I need it anymore but see after I have implemented tabs and keyboard navigation
-
-        private void Awake()
-        {
-            _modularButton = GetComponent<ModularButton>();
-        }
-
+        private bool _isSelectedFixed; // from outside e.g. when this button is used to select tabs and the tab is selected by other means e.g. via keyboard.
+        
+        
+        #region Pointer interaction logic
         public void OnPointerEnter(PointerEventData eventData)
         {
             if (!_isInteractable) return;
@@ -74,28 +80,41 @@ namespace DeadWrongGames.ZModularUI
             
             _isPressed = false;
             if (_feedbackClick != null) _modularButton.DoFeedback(_feedbackClick, doOneshots: true);
+            
+            // Handle select/deselect toggle if this is a selectable button
             if (_isSelectable && !_isSelectedFixed)
             {
                 if (_isSelected) Deselect();
                 else
                 {
                     Select();
-                    if (_feedbackSelect == null && _feedbackHover != null) _modularButton.DoFeedback(_feedbackHover, doOneshots: false);
+                    
+                    // If no explicit select feedback exists, use hover fallback
+                    if (_feedbackSelect == null && _feedbackHover != null) 
+                        _modularButton.DoFeedback(_feedbackHover, doOneshots: false);
                 }
             }
             else if (!_isSelectedFixed && _feedbackHover != null) _modularButton.DoFeedback(_feedbackHover, doOneshots: false);
             
-            foreach (Broadcaster response in _onClickResponses)
-                response.Broadcast();  
+            // Trigger any assigned click responses
+            // if (_onDeselectResponses != null)
+            {
+                foreach (IInvokable response in _onClickResponses) response.Invoke();
+            }
         }
+        #endregion
         
+        
+        #region Select and Deselect
         public void Select(bool doFixedSelect = false)
         {
             if (!_isSelectable) return;
 
-            OnSelectEvent?.Invoke(this);
-            _isSelected = true;
             if (doFixedSelect) _isSelectedFixed = true;
+            if (_isSelected) return;
+            
+            _isSelected = true;
+            OnSelectEvent?.Invoke(this); // Notify controllers (e.g. <see cref="RadioButtonController"/>) of selection
             if ((!_isPressed || _isSelectedFixed) && _feedbackSelect != null) _modularButton.DoFeedback(_feedbackSelect, doOneshots: true);
         }
         
@@ -103,15 +122,22 @@ namespace DeadWrongGames.ZModularUI
         {
             if (!_isSelectable) return;
             if (_isSelectedFixed && !doDeselectFixed) return;
+            if (!_isSelected) return;
 
             _isSelected = false;
             _isSelectedFixed = false;
+            
+            // Restore appropriate feedback depending on current interaction state
             if (_isPressed && _feedbackPress != null) _modularButton.DoFeedback(_feedbackPress, doOneshots: false);
             else if (_isHovered && _feedbackHover != null) _modularButton.DoFeedback(_feedbackHover, doOneshots: false);
             else _modularButton.EndFeedback();
             
-            foreach (Broadcaster response in _onDeselectResponses)
-                response.Broadcast(); 
+            // Trigger any assigned deselect responses
+            // if (_onDeselectResponses != null)
+            {
+                foreach (IInvokable response in _onDeselectResponses) response.Invoke();
+            }
         }
+        #endregion
     }
 }

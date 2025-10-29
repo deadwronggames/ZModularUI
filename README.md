@@ -62,11 +62,12 @@ The package includes modular prefabs for:
 - Images
 - Fills
 - Scrollviews
+- Tab views
 - Sliders
 - Toggles
 - Basic layout elements
 
-More prefabs (tab views, dropdowns, etc.) will be added soon.
+More prefabs will be added soon.
 Each prefab follows the modular structure and can be easily customized or extended.
 
 
@@ -75,7 +76,7 @@ Each prefab follows the modular structure and can be easily customized or extend
 
 
 ## Planned additions:
-- More UI element prefabs and functionality (tabs, dropdowns, input fields, toasts)
+- More UI element prefabs and functionality (dropdowns, input fields, toasts)
 - Tooltip system
 - Page management with animation & transition helpers, navigation system
 - Localization support
