@@ -57,14 +57,15 @@ The base class ensures that:
 ### Prefabs
 The package includes modular prefabs for:
 - Views
-- Buttons
 - Text elements
 - Images
+- Buttons
+- Toggles
+- Sliders
+- Dropdowns
 - Fills
 - Scrollviews
 - Tab views
-- Sliders
-- Toggles
 - Basic layout elements
 
 More prefabs will be added soon.
@@ -76,7 +77,7 @@ Each prefab follows the modular structure and can be easily customized or extend
 
 
 ## Planned additions:
-- More UI element prefabs and functionality (dropdowns, input fields, toasts)
+- More UI element prefabs and functionality (input fields, toasts)
 - Tooltip system
 - Page management with animation & transition helpers, navigation system
 - Localization support
@@ -84,5 +85,5 @@ Each prefab follows the modular structure and can be easily customized or extend
 
 ## Notes
 - Developed for use with Odin Inspector
-- Designed to integrate with other ZPackages (ZCommon, ZServices, etc.)
+- Designed to integrate with other ZPackages (ZCommon, ZUtils, etc.)
 - **Work in progress**

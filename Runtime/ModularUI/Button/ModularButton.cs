@@ -1,3 +1,4 @@
+using System;
 using DeadWrongGames.ZCommon;
 using TMPro;
 using UnityEngine;
@@ -25,8 +26,9 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] Image _middleImage;
         [SerializeField] Image _backImage;
         [SerializeField] Image _borderImage;
-
+        
         private ModularButtonProperties _defaultProperties;
+        private ModularButtonProperties.InteractionFeedbackContainer _interactionFeedbacks;
         
         protected override void Setup()
         {
@@ -40,11 +42,16 @@ namespace DeadWrongGames.ZModularUI
         
         protected override void Apply()
         {
-            // Load properties based on tier and toggle mode, then apply theme visuals and text / sprite content
+            // Load properties based on tier and toggle mode
             _defaultProperties = (_isToggle) ? _theme.GetToggleProperties(_componentTier) : _theme.GetButtonProperties(_componentTier);
+            _interactionFeedbacks = _defaultProperties.InteractionFeedbacks;
+
+            // Then apply theme visuals and text / sprite content
             _defaultProperties.ApplyTo(_text, _backImage, _borderImage, _visualsRectTransform);
             ApplyContent();
         }
+
+        public ModularButtonProperties.InteractionFeedbackContainer GetInteractionFeedbacks() => _defaultProperties.InteractionFeedbacks;
         
         /// <summary>
         /// Plays feedback animation/effects defined in <see cref="ButtonInteractionFeedbackSO"/>.

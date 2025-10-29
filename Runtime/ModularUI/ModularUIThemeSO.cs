@@ -60,7 +60,7 @@ namespace DeadWrongGames.ZModularUI
         
         
 #if UNITY_EDITOR
-        [Button("Reconfigure all Modular UI")]
+        [Button("Apply Theme")]
         public void ReconfigureAll()
         {
             _ = BaseModularUIProperty.ReloadAddressablesAssetsRecursive(this); // Should already be reloaded from OnValidate but just to be sure. reload is async so will not affect this call but at least the next.

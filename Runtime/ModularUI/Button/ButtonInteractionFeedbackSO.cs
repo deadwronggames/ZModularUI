@@ -30,7 +30,7 @@ namespace DeadWrongGames.ZModularUI
         [SerializeField] SpriteSet _alternativeSpriteSet;
         [Serializable] private struct SpriteSet { public Sprite Front, Middle, Back; }
 
-        public void DoFeedback(ModularButtonProperties defaultProperties, bool doOneshots, TMP_Text text, Image frontImage, Image middleImage, Image backImage)
+        public void DoFeedback(ModularButtonProperties defaultProperties, bool doOneshots, TMP_Text text, Image frontImage, Image middleImage, Image backImage) // TODO do I want the doOneshots parameter? See how it feels when sounds are implemented
         {
             // Audio
             if (doOneshots)
@@ -69,6 +69,5 @@ namespace DeadWrongGames.ZModularUI
             newColor = colorFallback;
             return (newColor != null);
         }
-
     }
 }

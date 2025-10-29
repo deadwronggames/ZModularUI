@@ -10,11 +10,22 @@ namespace DeadWrongGames.ZModularUI
     [Serializable]
     public class ModularButtonProperties : BaseModularUIProperty
     {
+        [Serializable]
+        public struct InteractionFeedbackContainer
+        {
+            public ButtonInteractionFeedbackSO Hover;
+            public ButtonInteractionFeedbackSO Press;
+            public ButtonInteractionFeedbackSO Click; // must only be non-persistent oneshot effects
+            public ButtonInteractionFeedbackSO Select;
+        }
+        
         [SerializeField] CommonTextProperties _text;
         [SerializeField] ModularImageProperties _backImage;
         [SerializeField] UIBorderProperties _border;
+        [SerializeField] InteractionFeedbackContainer _interactionFeedbacks;
         
         public CommonTextProperties Text => _text ;
+        public InteractionFeedbackContainer InteractionFeedbacks => _interactionFeedbacks;
 
         // No Addressables are used directly by this class
         protected override Task ReloadAddressablesAssets() => Task.CompletedTask;

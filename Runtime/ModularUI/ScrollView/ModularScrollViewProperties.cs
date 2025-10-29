@@ -61,8 +61,8 @@ namespace DeadWrongGames.ZModularUI
             
             // Update content spacing and placeholder offsets
             contentLayoutGroup.spacing = _contentSpacing;
-            placeholderTop.minHeight = _paddingTop - _borderProperties.ContentPadding.top - _contentSpacing;
-            placeholderBottom.minHeight = _paddingBottom - _borderProperties.ContentPadding.bottom - _contentSpacing;
+            SetPlaceholderHeight(placeholderTop, desiredPadding: _paddingTop, viewBorderPadding: _borderProperties.ContentPadding.top, _contentSpacing);
+            SetPlaceholderHeight(placeholderBottom, desiredPadding: _paddingBottom, viewBorderPadding: _borderProperties.ContentPadding.bottom, _contentSpacing);
             
             // Apply scrollbar visuals and colors
             scrollbar.SetHandleColorBlock(_handleColorDefault, _handleColorHighlighted);
@@ -89,6 +89,15 @@ namespace DeadWrongGames.ZModularUI
                 viewPortRectTransform.offsetMin = new Vector2(_paddingSides, _borderProperties.ContentPadding.bottom);
                 viewPortRectTransform.offsetMax = new Vector2(viewPortPaddingRight, -_borderProperties.ContentPadding.top);
             });
+        }
+
+        private void SetPlaceholderHeight(LayoutElement placeholder, int desiredPadding, int viewBorderPadding, int contentSpacing)
+        {
+            // placeholder height = desired padding minus the already applied view-border padding minus the spacing in the layout group
+            int placeholderMinHeight = desiredPadding - viewBorderPadding - contentSpacing;
+            
+            placeholder.gameObject.SetActive(placeholderMinHeight > 0);
+            placeholder.minHeight = placeholderMinHeight;
         }
 
         /// <summary>
