@@ -14,7 +14,6 @@ namespace DeadWrongGames.ZModularUI
     /// this class to control how the button responds to various  user interactions such as hover or press.
     /// Also supports special button behaviour (radio/tab) via <see cref="OnSelectEvent"/>.
     /// </summary>
-
     [RequireComponent(typeof(ModularButton))]
     public class ButtonFunctionality : SerializedMonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerClickHandler
     {

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 namespace DeadWrongGames.ZModularUI
 {
     // Handles a UI fill component with optional circular fill and tweened change effects
-    // TODO add data binding functionality
+// TODO add data binding functionality
     public class ModularFill : BaseModularUIComponent<ModularFillConfigSO>
     {
         [SerializeField] bool _isCircularFill;

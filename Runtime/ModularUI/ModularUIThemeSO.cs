@@ -1,14 +1,13 @@
 using DeadWrongGames.ZCommon;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace DeadWrongGames.ZModularUI
 {
     /// <summary>
     /// A ScriptableObject containing all modular UI properties for a theme.
     /// <para>
-    /// This class organizes UI properties into logical groups: windows, text, and buttons.
+    /// This class organizes UI properties into logical groups: windows, text, buttons, ....
     /// Each property type is represented by a class derived from <see cref="BaseModularUIProperty"/>,
     /// which handles caching and loading of Addressable assets used by that property.
     /// </para>
@@ -32,6 +31,11 @@ namespace DeadWrongGames.ZModularUI
         public ModularButtonProperties GetToggleProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _toggleProperties);
         
         
+        [Header("Modular Dropdowns")]
+        [SerializeField] ModularDropdownProperties[] _dropdownProperties;
+        public ModularDropdownProperties GetDropdownProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _dropdownProperties);
+        
+        
         [Header("Modular Fills")]
         [SerializeField] ModularFillProperties[] _fillProperties;
         [SerializeField] ModularFillProperties[] _fillCircularProperties;
@@ -41,7 +45,9 @@ namespace DeadWrongGames.ZModularUI
         
         [Header("Modular Scroll Views")]
         [SerializeField] ModularScrollViewProperties[] _scrollViewProperties;
+        [SerializeField] ModularScrollViewProperties[] _dropdownScrollViewProperties;
         public ModularScrollViewProperties GetScrollViewProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _scrollViewProperties);
+        public ModularScrollViewProperties GetDropDownScrollViewProperties(Tier tier) => ModularUIHelpers.GetProperty(tier, _dropdownScrollViewProperties);
         
         
         [Header("Modular Sliders")]

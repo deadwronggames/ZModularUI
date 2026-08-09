@@ -1,7 +1,6 @@
 using DG.Tweening;
 using System;
 using System.Threading.Tasks;
-using DeadWrongGames.ZUtils;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,9 +12,9 @@ namespace DeadWrongGames.ZModularUI
         // Visual and layout configuration for the scroll view
         [SerializeField] ModularImageProperties _backgroundProperties;
         [SerializeField] UIBorderProperties _borderProperties;
-        [SerializeField] int _paddingTop;
-        [SerializeField] int _paddingBottom;
-        [SerializeField] int _paddingSides;
+        [SerializeField] [Tooltip("Distance to view border")] int _paddingTop; // CAREFUL! does not work when items are added at runtime (or need to make sure that sibling index is set to last again)
+        [SerializeField] [Tooltip("Distance to view border")] int _paddingBottom;
+        [SerializeField] [Tooltip("Distance to view border")] int _paddingSides;
         [SerializeField] int _contentSpacing;
         [SerializeField] int _widthScrollbar;
         [SerializeField] ModularImageProperties _scrollbarBackgroundProperties;
@@ -55,14 +54,15 @@ namespace DeadWrongGames.ZModularUI
             _backgroundProperties.ApplyTo(backgroundImage, tweenTime, ease);
             _borderProperties.ApplyTo(borderImage, backgroundImage.rectTransform, tweenTime, ease);
 
-            // Recalculate layout and padding based on scrollbar necessity
+            // Recalculate viewport layout and padding based on scrollbar necessity
+            // Scrollbar component should be set to auto-hide and therefore handles itself
             bool isScrollbarNeeded = ModularScrollView.IsScrollbarVisible(contentRectTransform, viewPortRectTransform);
             AdjustViewPortPadding(viewPortRectTransform, isScrollbarNeeded);
             
             // Update content spacing and placeholder offsets
             contentLayoutGroup.spacing = _contentSpacing;
-            SetPlaceholderHeight(placeholderTop, desiredPadding: _paddingTop, viewBorderPadding: _borderProperties.ContentPadding.top, _contentSpacing);
-            SetPlaceholderHeight(placeholderBottom, desiredPadding: _paddingBottom, viewBorderPadding: _borderProperties.ContentPadding.bottom, _contentSpacing);
+            SetPlaceholderHeight(placeholderTop, desiredPadding: _paddingTop);
+            SetPlaceholderHeight(placeholderBottom, desiredPadding: _paddingBottom);
             
             // Apply scrollbar visuals and colors
             scrollbar.SetHandleColorBlock(_handleColorDefault, _handleColorHighlighted);
@@ -70,7 +70,7 @@ namespace DeadWrongGames.ZModularUI
             _handleProperties.ApplyTo(handleImage, tweenTime, ease);
             handleImage.rectTransform.SetPadding(_handlePadding, doOverrideSafety: true); // Override safety quick fix: the handle rect transform always gets set into a special state by some scroll component but padding is still no problem
             _scrollbarBorderProperties.ApplyTo(scrollbarBorderImage, scrollbarBackgroundImage.rectTransform, tweenTime, ease);
-            AdjustScrollbarPositionAndPadding(scrollbar);
+            AdjustScrollbarRectTransform(scrollbar);
         }
         
         /// <summary>
@@ -79,22 +79,22 @@ namespace DeadWrongGames.ZModularUI
         public void AdjustViewPortPadding(RectTransform viewPortRectTransform, bool isScrollbarVisible)
         {
             // Right padding becomes larger when scrollbar is present
-            float viewPortPaddingRight = (isScrollbarVisible) ? 
-                -(_paddingSides + _widthScrollbar + (_paddingSides - _borderProperties.ContentPadding.right)) :
-                -_paddingSides;
+            int viewPortPaddingRight = (isScrollbarVisible) ? 
+                -(_paddingSides + _widthScrollbar + _paddingSides) :
+                -(_paddingSides);
             
-            viewPortRectTransform.DoSafeUiModification(() =>
+            // viewPortRectTransform.DoSafeUiModification(() =>
             {
                 // offsetMin = left + bottom, offsetMax = right + top (negative = inward)
-                viewPortRectTransform.offsetMin = new Vector2(_paddingSides, _borderProperties.ContentPadding.bottom);
-                viewPortRectTransform.offsetMax = new Vector2(viewPortPaddingRight, -_borderProperties.ContentPadding.top);
-            });
+                viewPortRectTransform.offsetMin = new Vector2(_paddingSides, 0);
+                viewPortRectTransform.offsetMax = new Vector2(viewPortPaddingRight, 0);
+            }//);
         }
 
-        private void SetPlaceholderHeight(LayoutElement placeholder, int desiredPadding, int viewBorderPadding, int contentSpacing)
+        private void SetPlaceholderHeight(LayoutElement placeholder, int desiredPadding)
         {
             // placeholder height = desired padding minus the already applied view-border padding minus the spacing in the layout group
-            int placeholderMinHeight = desiredPadding - viewBorderPadding - contentSpacing;
+            int placeholderMinHeight = desiredPadding  - _contentSpacing;
             
             placeholder.gameObject.SetActive(placeholderMinHeight > 0);
             placeholder.minHeight = placeholderMinHeight;
@@ -104,14 +104,15 @@ namespace DeadWrongGames.ZModularUI
         /// Positions the scrollbar along the right edge and applies top/bottom padding.
         /// </summary>
         // ReSharper disable once SuggestBaseTypeForParameter
-        private void AdjustScrollbarPositionAndPadding(Scrollbar scrollbar)
+        private void AdjustScrollbarRectTransform(Scrollbar scrollbar)
         {
             RectTransform rectTransform = scrollbar.GetComponent<RectTransform>();
-            rectTransform.DoSafeUiModification(() =>
+            
+            //rectTransform.DoSafeUiModification(() =>
             {
+                rectTransform.offsetMin = new Vector2(-(_paddingSides + _widthScrollbar), _paddingBottom);
                 rectTransform.offsetMax = new Vector2(-_paddingSides, -_paddingTop);
-                rectTransform.offsetMin = new Vector2(rectTransform.offsetMax.x - _widthScrollbar, _paddingBottom);
-            });
+            }//);
         }
     }
 }

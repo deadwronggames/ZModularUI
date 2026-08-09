@@ -1,3 +1,15 @@
-## [1.0.0] - 2025-09-07
+
+
+## [1.0.0] - 2026-09-09
 ### First Release
-- for now just a placeholder theme script
+- Views
+- Text elements
+- Images
+- Buttons
+- Toggles
+- Sliders
+- Dropdowns
+- Fills
+- Scrollviews
+- Tab views
+- Basic layout elements

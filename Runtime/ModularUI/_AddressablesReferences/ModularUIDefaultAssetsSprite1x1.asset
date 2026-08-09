@@ -18,5 +18,5 @@ MonoBehaviour:
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
-  _key: ModularUI.DefaultAssets.Sprite1x1
+  _key: ModularUI.DefaultAssets.SpriteBorder
   _isValid: 1

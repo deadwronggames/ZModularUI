@@ -58,7 +58,7 @@ MonoBehaviour:
       Hover: {fileID: 11400000, guid: 52c2afc4069346749902cb046524d3d2, type: 2}
       Press: {fileID: 11400000, guid: 6513b4474d2982c44b083c33a80689ad, type: 2}
       Click: {fileID: 0}
-      Select: {fileID: 11400000, guid: 02cd1f89345a3eb44b3ed2e7a2618b1f, type: 2}
+      Select: {fileID: 11400000, guid: 93c01524da5344a4f9331dd9be1bd6ca, type: 2}
   - _text:
       _fontAssetReference: {fileID: 11400000, guid: 850236b1198785341b225e0ffa5c3b64, type: 2}
       _fontSize: 20
@@ -81,7 +81,7 @@ MonoBehaviour:
       Hover: {fileID: 11400000, guid: 52c2afc4069346749902cb046524d3d2, type: 2}
       Press: {fileID: 11400000, guid: 6513b4474d2982c44b083c33a80689ad, type: 2}
       Click: {fileID: 0}
-      Select: {fileID: 11400000, guid: 02cd1f89345a3eb44b3ed2e7a2618b1f, type: 2}
+      Select: {fileID: 11400000, guid: 93c01524da5344a4f9331dd9be1bd6ca, type: 2}
   _toggleProperties:
   - _text:
       _fontAssetReference: {fileID: 0}
@@ -106,6 +106,57 @@ MonoBehaviour:
       Press: {fileID: 0}
       Click: {fileID: 0}
       Select: {fileID: 11400000, guid: 02cd1f89345a3eb44b3ed2e7a2618b1f, type: 2}
+  _dropdownProperties:
+  - _buttonBackgroundProperties:
+      _spriteAssetReference: {fileID: 0}
+      _imageColor: {fileID: 0}
+      _sprite: {fileID: 0}
+    _buttonTextProperties:
+      _fontAssetReference: {fileID: 0}
+      _fontSize: 0
+      _textColor: {fileID: 0}
+      _font: {fileID: 0}
+    _buttonLabelPaddingLeft: 0
+    _buttonLabelPaddingRight: 0
+    _buttonBorderProperties:
+      _spriteAssetReference: {fileID: 0}
+      _imageColor: {fileID: 0}
+      _sprite: {fileID: 0}
+      _contentPadding:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+    _menuHeight: 0
+    _menuBackgroundProperties:
+      _spriteAssetReference: {fileID: 0}
+      _imageColor: {fileID: 0}
+      _sprite: {fileID: 0}
+    _itemHeight: 0
+    _scrollbarPadding: 0
+    _scrollbarWidth: 0
+    _trackWidth: 0
+    _trackProperties:
+      _spriteAssetReference: {fileID: 0}
+      _imageColor: {fileID: 0}
+      _sprite: {fileID: 0}
+    _handleProperties:
+      _spriteAssetReference: {fileID: 0}
+      _imageColor: {fileID: 0}
+      _sprite: {fileID: 0}
+    _menuBorderProperties:
+      _spriteAssetReference: {fileID: 0}
+      _imageColor: {fileID: 0}
+      _sprite: {fileID: 0}
+      _contentPadding:
+        m_Left: 0
+        m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+    _contentColorDefault: {fileID: 0}
+    _contentColorHighlighted: {fileID: 0}
+    _handleColorDefault: {fileID: 0}
+    _handleColorHighlighted: {fileID: 0}
   _fillProperties:
   - _backgroundProperties:
       _spriteAssetReference: {fileID: 11400000, guid: a620e0bda4161ac459ca211199d3fa86, type: 2}
@@ -114,11 +165,11 @@ MonoBehaviour:
     _changeIndicatorProperties:
       _spriteAssetReference: {fileID: 11400000, guid: d2134e742ec192e4ca829e650ae19c70, type: 2}
       _imageColor: {fileID: 11400000, guid: fe309f1f9749d354ab5695183353a4f6, type: 2}
-      _sprite: {fileID: 21300000, guid: fdfda0b04cc182c49bfdc737a23ef69b, type: 3}
+      _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
     _fillProperties:
       _spriteAssetReference: {fileID: 11400000, guid: d2134e742ec192e4ca829e650ae19c70, type: 2}
       _imageColor: {fileID: 11400000, guid: 6c2d811d89014b945887bf3f512b5f38, type: 2}
-      _sprite: {fileID: 21300000, guid: fdfda0b04cc182c49bfdc737a23ef69b, type: 3}
+      _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
     _borderProperties:
       _spriteAssetReference: {fileID: 11400000, guid: e22b37b5b57d1ab4f9aeeeeeec40268b, type: 2}
       _imageColor: {fileID: 11400000, guid: 808986c624850bd429e5818df7d6fa65, type: 2}
@@ -138,15 +189,15 @@ MonoBehaviour:
   - _backgroundProperties:
       _spriteAssetReference: {fileID: 11400000, guid: d2134e742ec192e4ca829e650ae19c70, type: 2}
       _imageColor: {fileID: 11400000, guid: bf9cefe0d9bc473459b21ed90c6a1aad, type: 2}
-      _sprite: {fileID: 21300000, guid: fdfda0b04cc182c49bfdc737a23ef69b, type: 3}
+      _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
     _changeIndicatorProperties:
       _spriteAssetReference: {fileID: 11400000, guid: d2134e742ec192e4ca829e650ae19c70, type: 2}
       _imageColor: {fileID: 11400000, guid: 6c2d811d89014b945887bf3f512b5f38, type: 2}
-      _sprite: {fileID: 21300000, guid: fdfda0b04cc182c49bfdc737a23ef69b, type: 3}
+      _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
     _fillProperties:
       _spriteAssetReference: {fileID: 11400000, guid: d2134e742ec192e4ca829e650ae19c70, type: 2}
       _imageColor: {fileID: 11400000, guid: 7ff0228985dea394fb916a210e97fbf5, type: 2}
-      _sprite: {fileID: 21300000, guid: fdfda0b04cc182c49bfdc737a23ef69b, type: 3}
+      _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
     _borderProperties:
       _spriteAssetReference: {fileID: 11400000, guid: e22b37b5b57d1ab4f9aeeeeeec40268b, type: 2}
       _imageColor: {fileID: 11400000, guid: 808986c624850bd429e5818df7d6fa65, type: 2}
@@ -176,9 +227,9 @@ MonoBehaviour:
         m_Right: 24
         m_Top: 24
         m_Bottom: 24
-    _paddingTop: 40
-    _paddingBottom: 40
-    _paddingSides: 50
+    _paddingTop: 15
+    _paddingBottom: 15
+    _paddingSides: 20
     _contentSpacing: 10
     _widthScrollbar: 60
     _scrollbarBackgroundProperties:
@@ -188,7 +239,7 @@ MonoBehaviour:
     _handleProperties:
       _spriteAssetReference: {fileID: 11400000, guid: d2134e742ec192e4ca829e650ae19c70, type: 2}
       _imageColor: {fileID: 11400000, guid: 408b680964df7e64bb48f89afcda12e6, type: 2}
-      _sprite: {fileID: 21300000, guid: fdfda0b04cc182c49bfdc737a23ef69b, type: 3}
+      _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
     _scrollbarBorderProperties:
       _spriteAssetReference: {fileID: 11400000, guid: e22b37b5b57d1ab4f9aeeeeeec40268b, type: 2}
       _imageColor: {fileID: 11400000, guid: 808986c624850bd429e5818df7d6fa65, type: 2}
@@ -230,7 +281,7 @@ MonoBehaviour:
     _handleProperties:
       _spriteAssetReference: {fileID: 11400000, guid: d2134e742ec192e4ca829e650ae19c70, type: 2}
       _imageColor: {fileID: 11400000, guid: 808986c624850bd429e5818df7d6fa65, type: 2}
-      _sprite: {fileID: 21300000, guid: fdfda0b04cc182c49bfdc737a23ef69b, type: 3}
+      _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
     _scrollbarBorderProperties:
       _spriteAssetReference: {fileID: 0}
       _imageColor: {fileID: 0}
@@ -238,6 +289,49 @@ MonoBehaviour:
       _contentPadding:
         m_Left: 0
         m_Right: 0
+        m_Top: 0
+        m_Bottom: 0
+    _handlePadding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    _handleColorDefault: {fileID: 11400000, guid: 808986c624850bd429e5818df7d6fa65, type: 2}
+    _handleColorHighlighted: {fileID: 11400000, guid: 6c2d811d89014b945887bf3f512b5f38, type: 2}
+  _dropdownScrollViewProperties:
+  - _backgroundProperties:
+      _spriteAssetReference: {fileID: 11400000, guid: a620e0bda4161ac459ca211199d3fa86, type: 2}
+      _imageColor: {fileID: 11400000, guid: bf9cefe0d9bc473459b21ed90c6a1aad, type: 2}
+      _sprite: {fileID: 21300000, guid: cad778eb2ae2ab94396fc6c55ef4e441, type: 3}
+    _borderProperties:
+      _spriteAssetReference: {fileID: 11400000, guid: e22b37b5b57d1ab4f9aeeeeeec40268b, type: 2}
+      _imageColor: {fileID: 11400000, guid: 808986c624850bd429e5818df7d6fa65, type: 2}
+      _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
+      _contentPadding:
+        m_Left: 24
+        m_Right: 24
+        m_Top: 24
+        m_Bottom: 24
+    _paddingTop: 5
+    _paddingBottom: 5
+    _paddingSides: 5
+    _contentSpacing: 0
+    _widthScrollbar: 10
+    _scrollbarBackgroundProperties:
+      _spriteAssetReference: {fileID: 11400000, guid: d2134e742ec192e4ca829e650ae19c70, type: 2}
+      _imageColor: {fileID: 11400000, guid: fe309f1f9749d354ab5695183353a4f6, type: 2}
+      _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
+    _handleProperties:
+      _spriteAssetReference: {fileID: 11400000, guid: d2134e742ec192e4ca829e650ae19c70, type: 2}
+      _imageColor: {fileID: 11400000, guid: 408b680964df7e64bb48f89afcda12e6, type: 2}
+      _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
+    _scrollbarBorderProperties:
+      _spriteAssetReference: {fileID: 0}
+      _imageColor: {fileID: 0}
+      _sprite: {fileID: 0}
+      _contentPadding:
+        m_Left: 4
+        m_Right: 4
         m_Top: 0
         m_Bottom: 0
     _handlePadding:
@@ -255,7 +349,7 @@ MonoBehaviour:
     _fillProperties:
       _spriteAssetReference: {fileID: 11400000, guid: d2134e742ec192e4ca829e650ae19c70, type: 2}
       _imageColor: {fileID: 11400000, guid: 6c2d811d89014b945887bf3f512b5f38, type: 2}
-      _sprite: {fileID: 21300000, guid: fdfda0b04cc182c49bfdc737a23ef69b, type: 3}
+      _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
     _fillPadding:
       m_Left: 27
       m_Right: 27
@@ -323,9 +417,9 @@ MonoBehaviour:
       _imageColor: {fileID: 11400000, guid: 408b680964df7e64bb48f89afcda12e6, type: 2}
       _sprite: {fileID: 21300000, guid: cad778eb2ae2ab94396fc6c55ef4e441, type: 3}
     _borderProperties:
-      _spriteAssetReference: {fileID: 11400000, guid: e22b37b5b57d1ab4f9aeeeeeec40268b, type: 2}
+      _spriteAssetReference: {fileID: 11400000, guid: a620e0bda4161ac459ca211199d3fa86, type: 2}
       _imageColor: {fileID: 11400000, guid: 808986c624850bd429e5818df7d6fa65, type: 2}
-      _sprite: {fileID: 21300000, guid: b773ec917d7b8bf4ba563f1d3829e553, type: 3}
+      _sprite: {fileID: 21300000, guid: cad778eb2ae2ab94396fc6c55ef4e441, type: 3}
       _contentPadding:
         m_Left: 20
         m_Right: 20

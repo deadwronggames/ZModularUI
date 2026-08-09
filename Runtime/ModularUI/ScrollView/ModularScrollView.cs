@@ -13,6 +13,7 @@ namespace DeadWrongGames.ZModularUI
     {
         private const float CHANGE_HIGHLIGHT_TIME_SECONDS = 0.3f;
         
+        [SerializeField] bool _isDropdownScrollView;
         [SerializeField] Tier _componentTier;
 
         [Header("Setup")] 
@@ -48,7 +49,7 @@ namespace DeadWrongGames.ZModularUI
         protected override void Apply()
         {
             // Apply visual and layout configuration from the theme
-            _properties = _theme.GetScrollViewProperties(_componentTier);
+            _properties = (_isDropdownScrollView) ? _theme.GetDropDownScrollViewProperties(_componentTier) : _theme.GetScrollViewProperties(_componentTier);
             _properties.ApplyTo(
                 _backgroundImage, 
                 _borderImage,

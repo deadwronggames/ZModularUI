@@ -23,4 +23,4 @@ namespace DeadWrongGames.ZModularUI
             properties.ApplyTo(_backgroundImage, _borderImage, _contentRectTransform);
         }
     }
-}   
+}
