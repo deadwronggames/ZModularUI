@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using DeadWrongGames.ZCommon;
+using DeadWrongGames.ZServices.Diagnostics;
 using DeadWrongGames.ZUtils;
 using UnityEditor;
 using UnityEngine;
@@ -25,7 +26,7 @@ namespace DeadWrongGames.ZModularUI
                 if (!ZMethods.IsSameFloatValue(rectTransform.anchorMin.x, 0f) || !ZMethods.IsSameFloatValue(rectTransform.anchorMax.x, 1f) ||
                     !ZMethods.IsSameFloatValue(rectTransform.anchorMin.y, 0f) || !ZMethods.IsSameFloatValue(rectTransform.anchorMax.y, 1f))
                 {
-                    $"RectTransform {rectTransform.name} is not stretched in all directions. Returning.".Log(level: ZMethodsDebug.LogLevel.Warning);
+                    LogService.Warning(BuiltInLogCategories.UI, $"RectTransform {rectTransform.name} is not stretched in all directions. Returning.").Log();
                     return;
                 }
             }

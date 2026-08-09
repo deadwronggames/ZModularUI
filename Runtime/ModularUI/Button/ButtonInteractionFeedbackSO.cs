@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DeadWrongGames.ZServices.Diagnostics;
 using DeadWrongGames.ZUtils;
 using DG.Tweening;
 using TMPro;
@@ -35,7 +36,7 @@ namespace DeadWrongGames.ZModularUI
             // Audio
             if (doOneshots)
             {
-                if (_audio != null) "TODO playing audio clip not implemented yet".Log(level: ZMethodsDebug.LogLevel.Warning);
+                if (_audio != null) LogService.Warning(BuiltInLogCategories.UI, "Playing audio clip not implemented yet").Log();
             }
 
             // Text colors

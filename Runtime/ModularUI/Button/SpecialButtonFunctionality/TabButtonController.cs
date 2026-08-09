@@ -1,4 +1,5 @@
 using System;
+using DeadWrongGames.ZServices.Diagnostics;
 using DeadWrongGames.ZUtils;
 using UnityEngine;
 
@@ -19,7 +20,8 @@ namespace DeadWrongGames.ZModularUI
             _radioButtonController.Configure();
             
             // Sanity check: ensure buttons and views align
-            if (_tabButtons.Length != _tabViewGOs.Length) $"On {name}: Number of tab buttons does not match number of tab views.".Log(level: ZMethodsDebug.LogLevel.Error);
+            if (_tabButtons.Length != _tabViewGOs.Length) 
+                LogService.Error(BuiltInLogCategories.UI, $"On {name}: Number of tab buttons does not match number of tab views.").Log();
         }
 
         private void OnEnable()
